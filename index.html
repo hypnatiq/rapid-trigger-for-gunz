@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://gunzinputlab.github.io/">
+  <meta name="description" content="A GunZ-first Rapid Trigger guide for establishing actuation, tuning RT A re-press travel, cleaning RT D release travel, and validating the complete movement cycle.">
+  <meta name="theme-color" content="#05080d">
+  <meta name="author" content="Hypnatiq">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rapid Trigger for GunZ">
+  <meta property="og:title" content="Rapid Trigger for GunZ">
+  <meta property="og:description" content="Start with a familiar actuation point, then tune RT A and RT D from the GunZ movement you already know.">
+  <meta property="og:url" content="https://gunzinputlab.github.io/">
+  <meta property="og:image" content="https://gunzinputlab.github.io/social-preview.png">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="site.css?v=2.6.0">
+  <title>Rapid Trigger for GunZ</title>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to the guide</a>
+
+  <header class="site-header" id="top">
+    <button class="menu-button" id="menuToggle" type="button" aria-label="Open guide contents" aria-expanded="false">☰</button>
+    <a class="brand" href="#home" aria-label="Rapid Trigger for GunZ home">
+      <img class="brand-mark" src="favicon.png" alt="">
+      <span><strong>Rapid Trigger for GunZ</strong><small data-i18n="brandSub">Build · Test · Refine</small></span>
+    </a>
+    <div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div>
+    <div class="header-tools">
+      <label class="sr-only" for="languageSelect" data-i18n="languageLabel">Language</label>
+      <select class="language-select" id="languageSelect" aria-label="Language">
+        <option value="en">English</option><option value="es">Español</option><option value="es-PE">Español (Perú)</option><option value="pt-BR">Português (Brasil)</option><option value="es-VE">Español (Venezuela)</option><option value="ko">한국어</option><option value="ja">日本語</option><option value="zh-CN">简体中文</option>
+      </select>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">Light</button>
+      <span class="page-indicator" id="pageIndicator">Page 01 / 10</span>
+    </div>
+  </header>
+
+  <aside class="guide-nav" id="guideNav" aria-label="Guide contents">
+    <p class="nav-title" data-i18n="guideContents">Guide contents</p>
+    <a href="#home"><span>01</span><b data-i18n="navHome">Start here</b></a>
+    <a href="#plain"><span>02</span><b data-i18n="navPlain">One dash + key travel</b></a>
+    <a href="#base"><span>03</span><b data-i18n="navBase">Tune actuation</b></a>
+    <a href="#rta"><span>04</span><b data-i18n="navGunz">Tune RT A</b></a>
+    <a href="#rtd"><span>05</span><b data-i18n="navRtd">Tune RT D</b></a>
+    <a href="#test"><span>06</span><b data-i18n="navTest">Validate</b></a>
+    <a href="#tester"><span>07</span><b data-i18n="navTester">Cycle tester</b></a>
+    <a href="#troubleshoot"><span>08</span><b data-i18n="navTrouble">Troubleshooting</b></a>
+    <a href="#glossary"><span>09</span><b data-i18n="navGlossary">Glossary</b></a>
+    <a href="#evidence"><span>10</span><b data-i18n="navEvidence">Sources & help</b></a>
+    <a class="rail-page-link remember-position" href="research-notebook.html" data-i18n="openNotebook">Open the Research Notebook</a>
+    <div class="side-note">
+      <strong data-i18n="readColors">Read the colors.</strong>
+      <span class="side-note-intro" data-i18n="colorIntro">Select a colored term for a short definition without leaving your place.</span>
+      <div class="color-key">
+        <div class="color-key-item"><span class="term-link term-tech">Keyboard term</span><small>Switch motion or actuation</small></div>
+        <div class="color-key-item"><span class="term-link term-guide">Guide term</span><small>A practical label used here</small></div>
+        <div class="color-key-item"><span class="term-link term-a">RT A · Activate</span><small>Downward re-press travel</small></div>
+        <div class="color-key-item"><span class="term-link term-d">RT D · Deactivate</span><small>Upward release travel</small></div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="section-banner" id="sectionBanner" aria-hidden="true">
+    <div class="section-banner-inner"><b id="bannerPage">Page 01</b><span id="bannerTitle">Home</span><a href="#top">Section start ↑</a></div>
+  </div>
+
+  <main class="guide-main" id="main">
+    <section class="hero tracked-section" id="home" data-page="01" data-title="Home">
+      <div class="hero-inner">
+        <div class="site-hero-grid">
+          <div class="hero-lead">
+            <span class="version-stamp">Revision 2.6</span>
+            <span class="eyebrow" data-i18n="heroEye">A GunZ movement guide</span>
+            <h1 data-i18n-html="heroTitle">Tune Rapid Trigger<br><span>for the way you move in GunZ.</span></h1>
+            <p class="lede" data-i18n="heroLead">Start with the slash shot, late dash, PPQ, or GDHS movement chain that continues to fail. This guide explains how your current Rapid Trigger settings may be causing the failure and helps you adjust the right distance for cleaner, more consistent movement.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="#controls" data-i18n="startMethod">Start the GunZ method</a>
+              <a class="button" href="#tester" data-i18n="openTester">Open the cycle tester</a>
+            </div>
+          </div>
+          <aside class="hero-route-card" aria-label="Choose a GunZ testing route">
+            <span class="route-kicker">Choose the problem you feel</span>
+            <h2>Start with what went wrong in GunZ.</h2>
+            <p>You do not need to read like an engineer. Start with what your character is doing.</p>
+            <nav class="route-links" aria-label="Quick GunZ routes">
+              <a href="#base"><b>01</b><span>The first press feels unfamiliar</span><i>→</i></a>
+              <a href="#rta"><b>02</b><span>My next dash breaks my shot rhythm</span><i>→</i></a>
+              <a href="#rtd"><b>03</b><span>The late dash does not clear</span><i>→</i></a>
+              <a href="#troubleshoot"><b>04</b><span>I know the symptom, not the cause</span><i>→</i></a>
+            </nav>
+            <div class="hero-result"><span>Latest FGunz checkpoint</span><strong>1.20 mm actuation · 0.35 mm RT A · 0.15 mm RT D</strong></div>
+          </aside>
+        </div>
+        <article class="panel control-intro" id="controls"><h3 data-i18n="threeJobs">Tune three settings in this order.</h3>
+          <div class="grid-3">
+            <div class="mini-card"><button class="term-link term-tech" data-term="actuation">Actuation</button><p><strong data-i18n="inGunz">In GunZ:</strong> how far you press a fully released key before the first tap is sent.</p><p><strong data-i18n="official">Keyboard behavior:</strong> the fixed depth where the keyboard first reports the key as pressed.</p><a class="detail-button remember-position" href="research-notebook.html#stage-actuation">See why I changed actuation →</a></div>
+            <div class="mini-card"><button class="term-link term-a" data-term="rta">RT A · Activate</button><p><strong data-i18n="inGunz">In GunZ:</strong> how much you press down again before the second tap, or a later repeated tap, is sent.</p><p><strong data-i18n="official">Keyboard behavior:</strong> the downward distance that starts the next press after your finger changes direction.</p><a class="detail-button remember-position" href="research-notebook.html#stage-rta">See how I tested RT A →</a></div>
+            <div class="mini-card"><button class="term-link term-d" data-term="rtd">RT D · Deactivate</button><p><strong data-i18n="inGunz">In GunZ:</strong> how much you lift before the keyboard stops recognizing the first tap as held.</p><p><strong data-i18n="official">Keyboard behavior:</strong> the upward distance that makes the keyboard report the active key as released.</p><a class="detail-button remember-position" href="research-notebook.html#stage-rtd">See how I tested RT D →</a></div>
+          </div>
+          <p class="callout good"><strong>Tuning order:</strong> preserve a familiar first press with actuation, tune RT A until consecutive movement works, then tune RT D until the standing late-dash release clears cleanly.</p>
+          <p class="callout amber" data-i18n-html="distanceNotTime"><strong>These values are distances in millimeters, not timing values.</strong> A smaller distance can happen sooner under the same finger motion, but the real time still depends on your hand, keyboard scanning, game, and connection.</p>
+        </article>
+        <div class="gunz-path" aria-label="GunZ test path">
+          <a href="#base"><b>01 · Actuation</b><strong>Preserve the familiar first press</strong><span>Test with Rapid Trigger OFF before changing the repeat cycle.</span></a>
+          <a href="#rta"><b>02 · RT A</b><strong>Continue the movement</strong><span>Make the next dash or action repeat while moving alone.</span></a>
+          <a href="#rtd"><b>03 · RT D</b><strong>Clean the late-dash release</strong><span>Clear the first tap without making held movement unstable.</span></a>
+          <a href="#test"><b>04 · Validation</b><strong>Keep what still works</strong><span>Confirm the complete cycle in training, Clan War, and TDM.</span></a>
+        </div>
+        <p class="note" data-i18n-html="homeScope"><strong>This guide focuses on Hall Effect keyboard tuning.</strong> It shows how to adjust a Hall Effect keyboard, such as a Wooting, for cleaner and more efficient movement in GunZ. My current GunZ settings and full testing process are recorded in the Research Notebook.</p>
+        <div class="scope-actions"><a class="button remember-position" href="research-notebook.html#current-settings">Visit Hanz's settings →</a></div>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="plain" data-page="02" data-title="One dash + key travel">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 02 · One dash and the key travel behind it</span><h2 data-i18n="plainTitle">Follow one dash from the first press to the second press.</h2><p data-i18n="plainIntro">Begin with the movement the player already knows. One dash uses a first press, a recognized release, and a second press. Actuation begins that cycle; Rapid Trigger changes what can happen after it.</p></header>
+        <div class="player-first">
+          <article class="gunz-layer"><span class="layer-label">What you do in GunZ</span><h3>Press one direction twice to create one dash.</h3><p>A dash back still needs its own double-tap. You still perform both taps yourself. Rapid Trigger only changes how far you need to lift and press the key between them.</p><div class="move-tags"><span>First tap</span><span>Release</span><span>Second tap</span><span>Dash</span></div></article>
+          <article class="technical-layer"><span class="layer-label">How the tuning order connects to the key cycle</span><h3>Preserve the first press, build the re-press, then clean the release.</h3><p>Actuation establishes the familiar first tap. RT A is tuned next so consecutive presses can continue. RT D is tuned after that to reduce the upward travel that clears the first tap. During the physical key motion, the RT D release still happens before the RT A re-press.</p></article>
+        </div>
+        <div class="merged-chapter-continuation" id="cycle">
+        <header class="subsection-header"><span class="layer-label">Continue with one directional double tap</span><h2 data-i18n="cycleTitle">See the key cycle behind one GunZ dash.</h2><p data-i18n="cycleIntro">This diagram follows one directional key through the two taps of a dash: first tap, release, second tap.</p></header>
+        <article class="panel stack-card">
+          <span class="layer-label">GunZ move first</span>
+          <h3>Press one direction once, release it, then press that same direction again.</h3>
+          <p class="section-bridge"><strong>Those two taps and the release between them must finish within a short input window.</strong> The OpenGunZ client source sets the full press, release, press sequence to 0.2 seconds, or 200 milliseconds. A private server can change its client code, so 200 ms is a documented GunZ-source reference, not a guaranteed measurement for every server.</p>
+          <p class="callout amber"><strong>Why Rapid Trigger matters inside that window:</strong> after the first tap, RT D can make the keyboard recognize the release with less upward key travel. Once you reverse the key, RT A can make the keyboard recognize the second tap with less downward travel. This reduces the physical distance your finger must cover. It does not increase GunZ's dash window.</p>
+          <div class="cycle">
+            <div><b>01</b><strong>First tap is recognized</strong><span>The directional key crosses its actuation point.</span></div>
+            <div><b>02</b><strong>The key remains held</strong><span>The keyboard keeps recognizing the key while you continue pressing.</span></div>
+            <div><b>03 · RT D</b><strong>First tap is released</strong><span>The key moves upward by the selected RT D distance, and the keyboard stops recognizing it as held.</span></div>
+            <div><b>04</b><strong>Key travel reverses</strong><span>Your finger stops lifting and starts pressing the same key again.</span></div>
+            <div><b>05 · RT A</b><strong>Second tap is recognized</strong><span>The same key moves down by the selected RT A distance.</span></div>
+          </div>
+          <p class="callout" data-i18n-html="cycleRule"><strong>Plain rule:</strong> actuation sends the first tap, RT D controls how much you lift before the keyboard recognizes its release, and RT A controls how much you press again before the keyboard sends the second tap.</p>
+          <p class="reference-note"><strong>Timing source:</strong> <a href="https://github.com/TriForceX/OpenGunZ/blob/master/src/Gunz/ZGameInput.cpp#L31-L55" target="_blank" rel="noopener">OpenGunZ · ZGameInput.cpp, directional sequence and 0.2-second limit ↗</a></p>
+        </article>
+        </div>
+        <article class="panel stack-card">
+          <span class="layer-label" data-i18n="readerQuestionLabel">Common player question</span>
+          <h3 data-i18n="readerQuestionTitle">Why do I keep tumbling even though I know the move?</h3>
+          <p data-i18n="readerQuestionCause">Knowing the movement does not guarantee that every press is released and recognized cleanly. If the keyboard still recognizes the first tap as held when you begin the second tap, GunZ may not receive the input sequence you intended.</p>
+          <p data-i18n="readerQuestionRole">Rapid Trigger reduces the key travel needed between those inputs. It does not perform the movement for you or prove that every mistake comes from the keyboard. It gives you shorter, adjustable release and re-press distances to test.</p>
+          <p class="callout good" data-i18n-html="readerQuestionTest"><strong>Keep your familiar GunZ settings, binds, mouse, and movement unchanged at first.</strong> The goal is to make the way you already play cleaner and more repeatable, not to relearn everything at once.</p>
+        </article>
+        <article class="panel stack-card transition-example" id="mechanical-to-he">
+          <div class="card-title-row"><div><span class="layer-label">Mechanical-to-Hall Effect actuation comparison</span><h3>Compare the same 2.00 mm actuation and 4.00 mm travel.</h3></div></div>
+          <p class="transition-intro"><strong>Cherry MX Red comes first because it supplies the familiar fixed reference.</strong> The Hall Effect side uses a Wooting-compatible Lekker V2 L60, a medium linear 40–60 gf switch with the same 4.00 mm total travel. Its actuation is set to 2.00 mm for this comparison. The switches do not have identical force curves or reset behavior; the shared values isolate where the first input begins.</p>
+          <div class="transition-columns">
+            <section class="travel-card mechanical-travel"><span class="travel-label">CHERRY MX RED · MECHANICAL</span><h4>Ducky One 2 · fixed first-press point</h4><div class="value-line"><b>2.00 mm actuation</b><span>4.00 mm total travel</span></div><ol class="travel-sequence"><li><b>Begin at 0.00 mm:</b> the key is fully released and OFF.</li><li><b>Press to 2.00 mm:</b> the fixed mechanical contact sends the first input.</li><li><b>Continue to 4.00 mm:</b> the key bottoms out and remains ON.</li><li><b>Lift back through its fixed reset behavior:</b> the switch turns OFF before another press can be recognized.</li><li><b>Press through 2.00 mm again:</b> the next input turns ON at the same fixed point.</li></ol><p><strong>What is fixed:</strong> the switch construction determines where the input actuates and resets. Software does not move the Cherry MX Red contact point.</p></section>
+            <section class="travel-card he-travel"><span class="travel-label">LEKKER V2 L60 · HALL EFFECT</span><h4>Wooting-compatible · configured to the same first press</h4><div class="value-line"><b>2.00 mm actuation</b><span>4.00 mm total travel</span></div><ol class="travel-sequence"><li><b>Begin at 0.00 mm:</b> the key is fully released and OFF.</li><li><b>Press to the configured 2.00 mm point:</b> the keyboard sends the first input at the familiar depth.</li><li><b>Continue to 4.00 mm:</b> the key bottoms out and remains ON.</li><li><b>With Rapid Trigger OFF, lift through the configured actuation boundary:</b> the keyboard recognizes the release.</li><li><b>Press through 2.00 mm again:</b> the next input turns ON at the same configured point.</li></ol><p><strong>What becomes adjustable:</strong> the Hall sensor continuously measures key position, so software can move the actuation point without changing the physical switch.</p></section>
+          </div>
+          <p class="note warning"><strong>Same values do not mean identical switches.</strong> This comparison matches actuation depth and total travel so the first press is easy to understand. Spring force, force curve, housing, calibration, reset behavior, and bottom-out feel can still differ.</p>
+          <p class="callout good"><strong>Actuation is the first-press anchor.</strong> Rapid Trigger will later shorten the release and re-press cycle, but the player can keep the familiar 2.00 mm first press until testing shows a reason to change it.</p>
+        </article>
+        <aside class="next-callout"><div><span>End of the key-travel explanation</span><h3>Choose one familiar actuation point next.</h3><p>Use the comparison tool to watch both switches move, or continue into the practical GunZ and typing test.</p></div><div class="next-callout-actions"><a class="button primary" href="#base">Continue to actuation →</a><a class="button" href="rapid-trigger-cycle-tester.html?v=2.6.0&amp;mode=transition" target="_blank" rel="noopener">Compare both key travels ↗</a></div></aside>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="base" data-page="03" data-title="Tune actuation">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 03 · Establish one familiar first press</span><h2 data-i18n="baseTitle">Choose one actuation point for GunZ and everyday typing.</h2><p data-i18n="baseIntro">Begin from a switch or actuation value the player already knows. Test with Rapid Trigger OFF, adjust only when a repeated problem appears, and keep one profile that works everywhere.</p></header>
+        <article class="panel stack-card"><div class="card-title-row"><h3>Build from the keyboard the player already knows.</h3><a class="detail-button remember-position" href="research-notebook.html#stage-actuation">Read why I changed actuation →</a></div><ul class="brief-list"><li><strong>If the previous switch is known, begin near its documented actuation depth.</strong> A Cherry MX Red reference begins at a nominal 2.00 mm first press.</li><li><strong>If the previous value is unknown, begin from the current comfortable profile.</strong> Do not force a new shallow value before learning how the player already presses.</li><li><strong>Mimic the familiar first press, not the entire old switch.</strong> Spring force, bottom-out, reset behavior, calibration, and key feel can still differ.</li><li><strong>Keep the GunZ setup fixed.</strong> Do not change keys, sensitivity, resolution, FOV, camera distance, crosshair, or client while establishing the keyboard baseline.</li></ul><p class="callout good"><strong>The first goal is familiarity.</strong> Rapid Trigger should be introduced as a repeat-cycle feature, not as a reason to relearn the first press.</p></article>
+        <article class="panel stack-card"><div class="card-title-row"><h3>Test actuation with Rapid Trigger OFF.</h3><a class="detail-button remember-position" href="research-notebook.html#stage-standstill">Read my first movement check →</a></div><ol class="steps"><li><strong>Start from a clean Hall Effect profile and save a copy.</strong> Use only actuation for this pass. Leave Rapid Trigger, SOCD, DKS, Mod Tap, and analog movement OFF.</li><li><strong>Test the first press from a fully released key.</strong> Perform one familiar dash or action from rest. Repeat it enough times to separate one mistake from a repeated problem.</li><li><strong>Test the complete RT-OFF keyboard behavior in GunZ.</strong> Use one repeatable route, such as moving from one Town spawn toward the other with natural double taps. This checks familiarity with the full fixed press-and-release cycle; it does not claim actuation caused every result.</li><li><strong>Type normally for several minutes.</strong> Use the same posture and pressure you use every day. Watch for accidental letters, repeated letters, missed presses, or the need to type more carefully.</li><li><strong>If the first press repeatedly feels too deep or late, lower actuation by 0.10 mm and repeat both tests.</strong> If resting pressure creates inputs, raise actuation by 0.10 mm.</li><li><strong>Stop when the same value feels familiar and intentional in GunZ and normal typing.</strong> Save that actuation value before enabling Rapid Trigger.</li></ol><p class="callout good"><strong>Actuation passes when:</strong> the player starts movement naturally, clears the RT-OFF route with familiar double taps, and types normally without accidental or missed inputs.</p></article>
+        <article class="panel stack-card"><h3>Keep one profile as the goal.</h3><div class="grid-2"><div><h4>GunZ pass</h4><ul class="brief-list"><li>The first press begins when intended from a fully released key.</li><li>The player can cross the same route without changing hand posture.</li><li>The result repeats across more than one short set.</li></ul></div><div><h4>Typing pass</h4><ul class="brief-list"><li>Normal typing does not create accidental or repeated letters.</li><li>Expected letters do not require extra pressure.</li><li>The player does not need a separate typing actuation value.</li></ul></div></div><p class="note warning"><strong>If either side fails, the actuation point is not finished.</strong> This method aims for one everyday profile that can type normally and play GunZ before Rapid Trigger is added.</p></article>
+        <article class="panel stack-card"><h3>Keep the saved actuation when Rapid Trigger turns ON.</h3><p><strong>With Rapid Trigger OFF:</strong> actuation sets the first press, and the keyboard uses its fixed release behavior before another press can register.</p><p><strong>With Rapid Trigger ON:</strong> the saved actuation still sets the first press from a fully released key. After that first press, RT D controls the release and RT A controls the next press after the key reverses direction.</p><p>Work only with actuation, RT A, and RT D. Keep actuation fixed, tune RT A for consecutive movement, then tune RT D for the release.</p><p class="callout" data-i18n-html="keepPlayingBase"><strong>Do not relearn everything at once.</strong> Keep the playing base you already have and change only the keyboard value connected to the repeated input problem.</p></article>
+        <aside class="next-callout"><div><span>End of the actuation pass</span><h3>Keep this value fixed and tune RT A next.</h3><p>The first press now works in GunZ and normal typing. Rapid Trigger can be introduced without replacing that familiar actuation point.</p></div><a class="button primary" href="#rta">Continue to RT A →</a></aside>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="rta" data-page="04" data-title="Tune RT A">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 04 · Build the next press</span><h2 data-i18n="rtaTitlePage">Tune RT A until consecutive movement works naturally.</h2><p data-i18n="rtaIntro">RT A controls how far the player presses down after reversing before the keyboard recognizes the next tap. Tune it while actuation stays saved and RT D remains at a stable starting value.</p></header>
+        <article class="panel stack-card" id="tradeoffs"><div class="card-title-row"><h3><button class="term-link term-a" type="button" data-term="rta">RT A</button> controls when the keyboard recognizes the next tap.</h3><a class="detail-button remember-position" href="research-notebook.html#stage-rta">Read my full RT A test →</a></div><p><strong>Lower RT A means less downward key travel is needed after you reverse the key and press it again.</strong></p><div class="grid-2"><div><h4>What can improve</h4><ul class="check-list"><li>The second tap or later repeated tap can be recognized with less downward travel.</li><li>Repeated movement can continue with less finger motion.</li><li>The next dash can stay closer to the firing moment you expect during slash shot.</li><li>Movement can feel cleaner when the keyboard keeps up with your intended rhythm.</li></ul></div><div><h4>What can go wrong</h4><ul class="check-list"><li>If RT A is too low, a small bounce or unplanned re-press can create an early repeat.</li><li>If RT A is too high, the next dash can arrive after the firing moment you expected.</li><li>A faster movement rhythm can feel wrong if your aim has not adjusted to it.</li><li>A value that works in training can still fail when an opponent changes your pace and attention.</li></ul></div></div><p class="note warning"><strong>The smallest number is not the goal.</strong> Keep the least re-press travel that remains intentional and repeatable.</p></article>
+        <article class="panel stack-card"><div class="card-title-row"><h3>Save actuation and hold RT D steady.</h3><a class="detail-button remember-position" href="research-notebook.html#stage-solo">Read my first RT A pass →</a></div><ul class="brief-list"><li><strong>Start here:</strong> actuation already gives the player a familiar and intentional first press.</li><li><strong>Enable Rapid Trigger.</strong> Keep RT D at a stable starting value that already allows the key to release. Do not begin from the smallest RT D value.</li><li><strong>Change RT A only.</strong> Leave actuation, RT D, mouse sensitivity, and every GunZ setting unchanged.</li><li><strong>My documented starting example:</strong> I kept RT D at 0.55 mm while lowering RT A from 1.50 mm to 0.60 mm for consecutive movement.</li></ul><p class="callout good"><strong>The value is personal; the control rule is reusable.</strong> Preserve the known first press and release setting while judging only the re-press.</p></article>
+        <article class="panel stack-card"><div class="card-title-row"><h3>Change only RT A and repeat the same movement chain.</h3><a class="detail-button remember-position" href="research-notebook.html#stage-solo">Read the solo-movement stage →</a></div><ol class="steps"><li><strong>Use one familiar movement chain while alone.</strong> Repeat slash shot or another sequence the player can already perform without thinking about the keys.</li><li><strong>Confirm the key still releases at the starting RT D value.</strong> If the first tap remains held, pause the RT A test and correct the release problem. RT A does not replace RT D.</li><li><strong>Watch the second and later repeated presses.</strong> One successful move from standstill is not enough. The movement must continue across several inputs.</li><li><strong>If the next press repeatedly arrives late or cannot register before bottom-out, lower RT A by 0.05 mm.</strong> Repeat the same chain with every other setting unchanged.</li><li><strong>If an extra or early repeat appears, raise RT A by 0.05 to 0.10 mm.</strong> The re-press has become too sensitive for the player's finger motion.</li><li><strong>Stop at the first repeatable re-press.</strong> Do not keep lowering RT A just because the keyboard allows it.</li></ol><p class="callout good"><strong>You are ready for RT D when:</strong> the movement chain continues while alone, each next press feels intentional, and no extra repeat appears.</p></article>
+        <article class="panel stack-card"><div class="card-title-row"><h3>What happened in my first RT A pass.</h3><a class="detail-button remember-position" href="research-notebook.html#stage-solo">See the recorded result →</a></div><ul class="brief-list"><li>At 1.50 mm RT A and 0.55 mm RT D, I could perform one selected move from standstill, but the next inputs were difficult to continue.</li><li>I kept RT D at 0.55 mm and lowered RT A to 0.60 mm.</li><li>Consecutive moves and actions then worked while I was alone in the Training Room.</li><li>This pass did not yet include an enemy, crosshair tracking, or firing rhythm.</li><li>I carried the 0.60 mm RT A result into the RT D release test instead of changing both values together.</li></ul></article>
+        <article class="panel stack-card"><h3>What to watch while tuning RT A.</h3><div class="grid-2"><div><h4>Watch for</h4><ul class="brief-list"><li>The second and later presses continue without bottoming out unregistered.</li><li>The movement chain remains fluent across more than one short set.</li><li>Each repeated press still feels deliberate.</li><li>The starting RT D value continues to release the key reliably enough for this pass.</li></ul></div><div><h4>Avoid</h4><ul class="brief-list"><li><strong>Do not choose the smallest number.</strong> Stop at the first value that makes consecutive movement repeatable.</li><li>Do not use RT A to solve a first-press or release problem.</li><li>If an early repeat appears, raise RT A and test again.</li><li>Do not add an enemy or change sensitivity until the solo movement chain works.</li></ul></div></div></article>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="rtd" data-page="05" data-title="RT D + cycle recheck">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 05 · Clean the release, then recheck the complete cycle</span><h2 data-i18n="rtdTitlePage">If the return dash is not silent, test RT D.</h2><p data-i18n="rtdIntro">RT D controls how much the player lifts before the keyboard lets go of the first tap. Tune it after RT A has already produced consecutive movement, then recheck both directions of the cycle.</p></header>
+        <article class="panel stack-card"><div class="card-title-row"><h3><button class="term-link term-d" type="button" data-term="rtd">RT D</button> controls when the keyboard recognizes the release.</h3><a class="detail-button remember-position" href="research-notebook.html#stage-rtd">Read my full RT D test →</a></div><p><strong>Lower RT D means less upward key travel is needed before the first tap is no longer recognized as held.</strong></p><div class="grid-2"><div><h4>What can improve</h4><ul class="check-list"><li>The first tap can reset with less lift.</li><li>You can begin the second tap sooner under the same finger motion.</li><li>The double-tap can be easier to complete inside GunZ's dash window.</li><li>Late-dash returns can feel cleaner and become easier to repeat.</li></ul></div><div><h4>What can go wrong</h4><ul class="check-list"><li>If RT D is too low, a tiny pressure change can release a direction you meant to hold.</li><li>If RT D is too high, the keyboard may still recognize the first tap as held when you begin the second tap.</li><li>A value that clears one dash can still fail during a longer movement chain.</li><li>One missed dash does not prove RT D is the cause. Change it only when the same release problem repeats.</li></ul></div></div><p class="callout amber"><strong>Example, not a preset:</strong> 0.10 mm RT D requires very little upward travel, but it also leaves very little room for finger bounce or natural pressure changes. If a held direction releases accidentally, raise RT D and test again.</p></article>
+        <article class="panel stack-card"><div class="card-title-row"><h3>Carry the saved actuation and RT A result into this pass.</h3><a class="detail-button remember-position" href="research-notebook.html#stage-rtd">Read my first RT D pass →</a></div><ul class="brief-list"><li><strong>Start here:</strong> actuation already feels familiar and RT A already supports consecutive movement.</li><li><strong>Save those values before continuing.</strong> RT D is the only setting that changes during the release pass.</li><li><strong>My recorded first pass:</strong> I carried 0.60 mm RT A forward and lowered RT D from 0.55 mm to 0.45 mm, then 0.40 mm.</li><li><strong>Keep the same move and environment.</strong> Do not add an enemy or change sensitivity while isolating the standing late-dash release.</li></ul><p class="callout good"><strong>This is the next stage, not a new starting preset.</strong> Carry forward the actuation and RT A values that already passed for the player's own movement.</p></article>
+        <article class="panel stack-card"><div class="card-title-row"><h3>Change only RT D and repeat the same late dash.</h3><a class="detail-button remember-position" href="research-notebook.html#stage-rtd">Read the standing late-dash test →</a></div><ol class="steps"><li><strong>Leave actuation and RT A alone.</strong> Changing more than one value makes it harder to tell what cleaned the release.</li><li><strong>Use a late-dash return from standstill.</strong> Dash one direction, then late dash back. Treat each dash as its own two-press input.</li><li><strong>Confirm the opening dash is normal.</strong> Use familiar movement such as slash shot or half step before judging the return.</li><li><strong>Listen for the return dash.</strong> If it repeatedly fails to stay silent, the keyboard may still recognize the first tap as held when the second tap begins.</li><li><strong>Lower RT D by 0.05 to 0.10 mm.</strong> Less lift will be required before the keyboard recognizes the release. Repeat the exact same late dash.</li><li><strong>If held movement cuts off from tiny finger motion, raise RT D one step.</strong> The release has become too sensitive.</li><li><strong>Stop at the first repeatable release.</strong> Do not keep lowering RT D just because the keyboard allows it.</li></ol><p class="callout good"><strong>RT D passes when:</strong> the opening dash remains normal, the return becomes silent and repeatable, and held movement does not end from small pressure changes.</p></article>
+        <article class="panel stack-card"><div class="card-title-row"><h3>Recheck RT A after RT D changes the release.</h3><a class="detail-button remember-position" href="research-notebook.html#stage-rta">Read the enemy-and-aim stage →</a></div><p>Lower RT D lets the key turn OFF with less upward travel. That can change the feel and rhythm of the complete cycle, but it does not mathematically require a higher or lower RT A value.</p><div class="tuning-decisions"><div><strong>The next press now arrives too early or an extra repeat appears.</strong><span>Raise RT A by 0.05 to 0.10 mm and repeat the same movement chain.</span></div><div><strong>The release is clean, but the next press still arrives too late.</strong><span>Lower RT A by 0.05 mm and repeat the same movement-and-aim test.</span></div></div><p class="callout"><strong>Leave RT A unchanged when the complete cycle is already clean.</strong> In my recorded pass, lowering RT D to 0.40 mm did not make the next press early. The next dash was still late under aim, so RT A moved from 0.60 mm toward 0.35 mm.</p></article>
+        <article class="panel stack-card"><div class="card-title-row"><h3>Recheck RT D if the RT A adjustment changes the rhythm again.</h3><a class="detail-button remember-position" href="research-notebook.html#stage-rtd-retest">Read why I retested release →</a></div><ul class="brief-list"><li>My first RT D pass stopped at 0.40 mm when the standing return became cleaner.</li><li>After RT A changed the movement-and-aim rhythm, the release problem appeared again.</li><li>I returned to RT D because the release symptom repeated, not because the RT D number was larger than RT A.</li><li>After actuation later changed to 1.20 mm, I restored RT A to 0.60 mm and RT D to 0.55 mm and rebuilt the cycle instead of carrying the older values forward.</li><li>The new-baseline training pass reached 0.80 mm RT A and 0.30 mm RT D. Clan War and TDM later reached 0.35 mm RT A and 0.15 mm RT D.</li></ul><p class="callout good"><strong>The recheck rule:</strong> RT A and RT D stay independent, but changing one can expose a repeated problem in the other part of the movement cycle.</p></article>
+        <article class="panel stack-card"><h3>Match the repeated release problem to RT D.</h3><div class="tuning-decisions"><div><strong>The first tap is still held when the second press begins.</strong><span>Lower RT D one small step so the release needs less lift, then repeat the same move.</span></div><div><strong>A held direction releases from tiny finger movement.</strong><span>Raise RT D one small step so natural pressure changes do not end the held input.</span></div></div><p class="callout"><strong>These are opposite symptoms.</strong> Lower RT D only when release requires too much lift. Raise RT D when release happens too easily.</p></article>
+        <article class="panel stack-card"><h3>What to watch while tuning RT D and rechecking the cycle.</h3><div class="grid-2"><div><h4>Watch for</h4><ul class="brief-list"><li>The standing late-dash return becomes silent and repeatable.</li><li>The first tap releases before the second press begins.</li><li>The RT A movement chain still continues after the RT D change.</li><li>The complete cycle holds through more than one short set.</li></ul></div><div><h4>Avoid</h4><ul class="brief-list"><li><strong>Do not automatically compensate RT A.</strong> Raise or lower it only when a repeated re-press symptom appears.</li><li>If a direction releases too easily, raise RT D instead of chasing RT A.</li><li>Do not tune around one failed dash.</li><li>Do not change sensitivity until the complete keyboard cycle is ready for validation.</li></ul></div></div></article>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="test" data-page="06" data-title="Validate in GunZ">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 06 · Training first, then Clan War and TDM</span><h2 data-i18n="testTitle">Validate the complete keyboard cycle in real GunZ.</h2><p data-i18n="testIntro">Begin only after actuation, RT A, and RT D have each passed their controlled test. Training confirms the full movement cycle. Clan War and Team Deathmatch then test whether it still works while you use the map, aim, and react to enemy pace.</p></header>
+        <article class="panel stack-card"><div class="card-title-row"><h3>Pass 1 · Controlled movement</h3><a class="detail-button remember-position" href="research-notebook.html#stage-solo">See my controlled result →</a></div><ol class="steps"><li>Load the saved actuation, RT A, and RT D result.</li><li>Confirm one first press from a fully released key still feels intentional.</li><li>Repeat the familiar movement chain while alone.</li><li>Repeat the standing late-dash return and confirm the release remains clean.</li><li>Run the same short set more than once before treating the result as a pass.</li><li>If one symptom repeats, return only to the setting that controls that part of the cycle.</li></ol></article>
+        <article class="panel stack-card"><div class="card-title-row"><h3>Pass 2 · Clan War or Team Deathmatch</h3><a class="detail-button remember-position" href="research-notebook.html#stage-final-retune">See my real-match result →</a></div><ol class="steps"><li>Take the training result into Clan War or Team Deathmatch.</li><li>Use the map and test movement in more than one direction while controlling your character and aiming.</li><li>React to different players and different enemy pacing.</li><li>Do not retune after one miss.</li><li>If the same input problem repeats, check the setting that controls that part of the key cycle.</li><li>Save the last setting that stays clean under pressure.</li></ol><p class="callout"><strong>Why not Duel as the main test:</strong> most fights on Hall stay mainly left and right. That does not give the same full range of motion or map movement that Clan War and Team Deathmatch require.</p></article>
+        <article class="panel stack-card"><h3>How to decide whether the setting passed.</h3><ul class="brief-list"><li><strong>The move works alone:</strong> the setting passed the controlled movement test.</li><li><strong>The move stays aligned with your aim in Clan War and TDM:</strong> the setting passed the pressure and full-movement test.</li><li><strong>The same failure repeats:</strong> return to the setting that controls that part of the key cycle.</li><li><strong>A different failure appears:</strong> stop changing the current setting and identify the new problem first.</li><li><strong>The result works across sessions:</strong> save it as your next checkpoint.</li></ul></article>
+        <article class="panel stack-card"><div class="card-title-row"><h3>Finish the keyboard tune before reconsidering sensitivity.</h3><a class="detail-button remember-position" href="research-notebook.html#stage-rta">See why I added an enemy →</a></div><ul class="brief-list"><li><strong>Cleaner movement can make your aim feel different.</strong> You may reach the next dash and firing moment more fluently than before.</li><li><strong>Do not change sensitivity while the keyboard is still changing.</strong> That would move two causes at once and make the result harder to understand.</li><li><strong>First confirm the keyboard in real fights.</strong> The movement should remain clean while you aim, shoot, and react to different players.</li><li><strong>Only reconsider sensitivity after repeated movement mistakes are no longer the problem.</strong> You may decide that no sensitivity change is needed.</li></ul></article>
+        <p class="note"><strong>If you doubt a step:</strong> the <a class="remember-position" href="research-notebook.html">Research Notebook</a> shows the observations and corrections that led to this order.</p>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="tester" data-page="07" data-title="Rapid Trigger Cycle Tester">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 07 · Connect the move to the switch</span><h2 data-i18n="testerTitle">Rapid Trigger Cycle Tester</h2><p data-i18n="testerIntro">The tester follows one directional key from the first press, through release, to the second press. Compare the saved starting profile with the latest FGunz result, then change one value to see which part of that cycle moves.</p><p class="tester-stage-note"><strong>Two stages of the same tune:</strong> Training Room brought the new 1.20 mm actuation baseline to 0.80 mm RT A and 0.30 mm RT D. Clan War and Team Deathmatch then brought the full-map result to 0.35 mm RT A and 0.15 mm RT D. These are my test records, not universal presets.</p></header>
+        <article class="panel tester-launch-panel">
+          <div class="tester-launch-copy">
+            <span class="kicker">Dedicated interactive tool</span>
+            <h3>Open the Cycle Tester in a new tab.</h3>
+            <p>The tester needs a full-width workspace for the switch, travel rail, Live Checker, profile notes, and Event History to stay readable together. Opening it separately also keeps your place in this guide.</p>
+            <ul class="brief-list tester-launch-list">
+              <li>Compare the Clan War / TDM checkpoint with the Training Room result.</li>
+              <li>Enter your own actuation, RT A, RT D, and bottom-out values.</li>
+              <li>Follow each press, release, direction change, and second tap in Event History.</li>
+            </ul>
+          </div>
+          <div class="tester-launch-action">
+            <a class="button primary tester-launch-button" href="rapid-trigger-cycle-tester.html?v=2.6.0" target="_blank" rel="noopener">Open the Cycle Tester ↗</a>
+            <small>Opens in a new browser tab.</small>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="troubleshoot" data-page="08" data-title="Troubleshooting">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 08 · Start with what your character did</span><h2 data-i18n="troubleTitle">Start with what keeps going wrong in the move.</h2><p data-i18n="troubleIntro">If the same problem keeps happening, use this table to find the first setting worth checking. Do not retune after one miss.</p></header>
+        <article class="panel stack-card"><div class="table-wrap"><table>
+          <thead><tr><th>What you keep noticing</th><th>Start here</th><th>Why it fits</th></tr></thead>
+          <tbody>
+            <tr><td>The first tap feels too deep or late from a fully released key.</td><td><button class="term-link term-tech" type="button" data-term="actuation">Lower actuation</button></td><td>The first press needs less downward travel. Change it a small step and keep RT D and RT A unchanged.</td></tr>
+            <tr><td>The first tap happens from resting pressure.</td><td><button class="term-link term-tech" type="button" data-term="actuation">Raise actuation</button></td><td>The first press needs more deliberate downward travel before the keyboard recognizes it.</td></tr>
+            <tr><td data-i18n="troubleKnownMove">I know the move, but the second press sometimes does not register and the movement becomes a tumble.</td><td><button class="term-link term-a" type="button" data-term="rta" data-i18n="troubleStartRtd">RT A first</button></td><td data-i18n="troubleKnownMoveWhy">Start by checking whether the re-press needs too much downward travel. If the first tap is still held, move to RT D. Repeat the same movement before changing either value.</td></tr>
+            <tr><td>The first tap is still held when the second press begins.</td><td><button class="term-link term-d" type="button" data-term="rtd">Lower RT D</button></td><td>The release needs less upward travel. Change one small step and repeat the same two-press input.</td></tr>
+            <tr><td>The opening dash is normal, but the late-dash return is not silent.</td><td><button class="term-link term-d" type="button" data-term="rtd">RT D</button></td><td>The first tap of the return may still be held when you begin its second tap. Repeat the test before changing anything.</td></tr>
+            <tr><td>A held direction releases from tiny finger movement.</td><td><button class="term-link term-d" type="button" data-term="rtd">Raise RT D</button></td><td>The release distance is too small for your natural pressure changes. More upward travel helps preserve the held input.</td></tr>
+            <tr><td>The next dash feels late during slash shot, and your expected shot timing falls out of rhythm.</td><td><button class="term-link term-a" type="button" data-term="rta">RT A</button></td><td>RT A controls how far you press again before the keyboard recognizes the next tap.</td></tr>
+            <tr><td>An extra or early repeat appears.</td><td><button class="term-link term-a" type="button" data-term="rta">RT A</button></td><td>The re-press distance may be too small for your finger motion.</td></tr>
+            <tr><td>Movement is clean alone but breaks only under pressure.</td><td><button class="term-link term-guide" type="button" data-term="pvp">CW/TDM validation</button></td><td>The value may work alone but not at the pace of a real fight.</td></tr>
+          </tbody>
+        </table></div><p class="callout warning"><strong>Not every missed shot is a keyboard problem.</strong> Finish the keyboard test first. If the movement is already clean and the miss still repeats, use the Research Notebook to check the rest of the setup.</p></article>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="glossary" data-page="09" data-title="Glossary">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 09 · Glossary</span><h2 data-i18n="glossaryTitle">What each keyboard term means in GunZ.</h2><p data-i18n="glossaryIntro">Open a term for the plain definition first, followed by the part it changes in your movement.</p></header>
+        <div class="glossary-columns">
+        <article class="panel glossary-group">
+          <h3>Keyboard terms</h3>
+          <details id="glossary-actuation" open><summary><span class="term-link term-tech">Actuation point</span></summary><div class="definition-body"><p><strong>Definition:</strong> the key depth where the keyboard first recognizes a released key as pressed.</p><p><strong>GunZ connection:</strong> how far you press before the first tap of a directional input is sent.</p></div></details>
+          <details id="glossary-rapid-trigger"><summary><span class="term-link term-tech">Rapid Trigger</span></summary><div class="definition-body"><p><strong>Definition:</strong> the keyboard recognizes a release and a new press from the distance and direction of the key's movement. It does not wait for one fixed reset point.</p><p><strong>GunZ connection:</strong> it can reduce the key travel needed to release the first tap and recognize the second or later repeated tap.</p></div></details>
+          <details id="glossary-rtd"><summary><span class="term-link term-d">RT D · Rapid Trigger Deactivate</span></summary><div class="definition-body"><p><strong>Definition:</strong> the upward distance an active key moves before the keyboard reports it as released. This is the OFF state shown in keyboard software.</p><p><strong>GunZ connection:</strong> how much you lift before the keyboard stops recognizing the first tap as held.</p></div></details>
+          <details id="glossary-rta"><summary><span class="term-link term-a">RT A · Rapid Trigger Activate</span></summary><div class="definition-body"><p><strong>Definition:</strong> the downward distance after key-travel reversal before the keyboard recognizes the next press. This is the next ON state shown in keyboard software.</p><p><strong>GunZ connection:</strong> how much you re-press before the keyboard recognizes the second or later repeated tap.</p></div></details>
+          <details id="glossary-reversal"><summary><span class="term-link term-tech">Key-travel reversal</span></summary><div class="definition-body"><p><strong>Definition:</strong> the point where the physical key stops moving up and starts moving down again.</p><p><strong>GunZ connection:</strong> it begins the re-press that can become the second or later repeated input. It does not mean your character changed direction.</p></div></details>
+          <details id="glossary-split"><summary><span class="term-link term-tech">Split sensitivity</span></summary><div class="definition-body"><p><strong>Definition:</strong> Wooting's option for assigning separate downstroke/Activate and upstroke/Deactivate distances.</p><p><strong>GunZ connection:</strong> RT A and RT D can be tested separately instead of sharing one number.</p></div></details>
+          <details id="glossary-continuous"><summary><span class="term-link term-tech">Continuous Rapid Trigger</span></summary><div class="definition-body"><p><strong>Definition:</strong> a mode that keeps Rapid Trigger active until the key is fully released. Standard Rapid Trigger ends when the key rises above its configured actuation point.</p><p><strong>GunZ connection:</strong> this mode changes how long Rapid Trigger remains active while you release a key. Keep the mode unchanged while comparing values.</p></div></details>
+          <details id="glossary-software"><summary><span class="term-link term-tech">Other keyboard software</span></summary><div class="definition-body"><p><strong>Definition:</strong> another Hall-effect keyboard may use different names for the same upward and downward key controls.</p><p><strong>GunZ connection:</strong> check what the setting does, not only what it is called, before following the RT D or RT A steps.</p></div></details>
+          <details id="glossary-socd"><summary><span class="term-link term-tech">SOCD / Snappy Tappy</span></summary><div class="definition-body"><p><strong>Definition:</strong> a separate feature that decides how opposing directions are resolved.</p><p><strong>GunZ connection:</strong> it can change directional output without changing Rapid Trigger, so record it and keep it fixed during an RT test.</p></div></details>
+          <details id="glossary-travel"><summary><span class="term-link term-tech">Total travel and bottom-out</span></summary><div class="definition-body"><p><strong>Definition:</strong> total travel is the full physical distance from the released top to the deepest position; bottom-out is that deepest position.</p><p><strong>GunZ connection:</strong> it sets the physical space available for the first press, release, key-travel reversal, and second press.</p></div></details>
+        </article>
+        <article class="panel glossary-group">
+          <h3>Guide terms</h3>
+          <details id="glossary-double-press"><summary><span class="term-link term-guide">Directional double press</span></summary><div class="definition-body"><p><strong>Definition used here:</strong> the two presses of the same direction that produce one dash.</p><p><strong>GunZ connection:</strong> this guide focuses on the keyboard recognizing a release between those presses and recognizing the second press in time.</p></div></details>
+          <details id="glossary-baseline"><summary><span class="term-link term-guide">GunZ base</span></summary><div class="definition-body"><p><strong>Definition used here:</strong> a saved, repeatable starting profile that you do not change during comparison.</p></div></details>
+          <details id="glossary-checkpoint"><summary><span class="term-link term-guide">Checkpoint</span></summary><div class="definition-body"><p><strong>Definition used here:</strong> a saved value that passed its current test stage and can be restored if the next change performs worse.</p></div></details>
+          <details id="glossary-dead-dash"><summary><span class="term-link term-guide">Dead dash</span></summary><div class="definition-body"><p><strong>Definition used here:</strong> a dash you expected did not complete.</p><p><strong>GunZ connection:</strong> if it repeats, check whether the keyboard recognized the release between the two taps and then recognized the second tap.</p></div></details>
+          <details id="glossary-ready"><summary><span class="term-link term-guide">RT A-ready boundary</span></summary><div class="definition-body"><p><strong>Definition used in the tester:</strong> the deepest point where there is still enough key travel left to complete the selected RT A distance before the key bottoms out.</p><p><strong>Limit:</strong> it is only a visual guide in this tester. It is not a Wootility setting, an OFF point, or a server timing measurement.</p></div></details>
+          <details id="glossary-training"><summary><span class="term-link term-guide">Training calibration</span></summary><div class="definition-body"><p><strong>Definition used here:</strong> a controlled test of a familiar move before an opponent and pressure are added.</p></div></details>
+          <details id="glossary-pvp"><summary><span class="term-link term-guide">CW/TDM validation</span></summary><div class="definition-body"><p><strong>Definition used here:</strong> testing the training result in Clan War or Team Deathmatch before saving the setting you prefer.</p><p><strong>GunZ connection:</strong> real opponents change your pace, aim, and attention in ways a solo training test cannot.</p></div></details>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="evidence" data-page="10" data-title="Evidence & help">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 10 · What supports the GunZ method</span><h2 data-i18n="evidenceTitle">What I can support, and what is still personal.</h2><p data-i18n="evidenceIntro">The sources explain how the keyboard and GunZ input window work. My own tests explain why I changed each value and where I stopped.</p></header>
+        <article class="panel stack-card"><h3>What the sources support</h3><ul class="brief-list"><li>The OpenGunZ client source uses 0.2 seconds, or 200 milliseconds, for the full press, release, press sequence.</li><li>Rapid Trigger follows the direction and distance of the key instead of waiting for one fixed reset point.</li><li>Split sensitivity lets the release distance and the re-press distance use separate values.</li><li>A smaller selected distance requires less physical key travel.</li></ul><h3>What I am not saying</h3><ul class="brief-list"><li>I am not saying that every private server uses the OpenGunZ timing without changes.</li><li>I am not saying that my profile is correct for every player or keyboard.</li><li>A millimeter value is not a fixed number of milliseconds.</li><li>Rapid Trigger still does not replace movement practice or explain every missed input.</li></ul></article>
+        <article class="panel stack-card reference-card">
+          <h3>Keyboard behavior and Rapid Trigger</h3>
+          <p class="reference-note">These sources explain the keyboard feature. My GunZ values came from the testing shown in this project.</p>
+          <div class="resource-grid">
+            <a class="resource-link" href="https://help.wooting.io/article/102-how-to-set-up-rapid-trigger" target="_blank" rel="noopener">Wooting · How to Set Up Rapid Trigger <span>↗</span></a>
+            <a class="resource-link" href="https://wooting.io/rapid-trigger" target="_blank" rel="noopener">Wooting · Rapid Trigger <span>↗</span></a>
+            <a class="resource-link" href="https://wooting.io/wootility/changelogs/5.0.0" target="_blank" rel="noopener">Wooting · Wootility controls and terminology <span>↗</span></a>
+            <a class="resource-link" href="https://wooting.io/product/lekker-switch-l60-v2" target="_blank" rel="noopener">Wooting · Lekker V2 L60 specifications <span>↗</span></a>
+            <a class="resource-link" href="https://www.cherry.de/en-us/product/mx2a-red" target="_blank" rel="noopener">CHERRY · MX Red specifications <span>↗</span></a>
+            <a class="resource-link" href="https://www.gateron.com/products/gateron-magic-jade-switch" target="_blank" rel="noopener">Gateron · Magnetic Jade specifications <span>↗</span></a>
+            <a class="resource-link" href="https://www.youtube.com/watch?v=eZENx1T7OLw" target="_blank" rel="noopener">Wooting · What is Rapid Trigger &amp; Actuation Point? <span>↗</span></a>
+            <a class="resource-link" href="https://www.youtube.com/watch?v=BSlKt7m7xXk" target="_blank" rel="noopener">Wooting · Rapid Trigger FPS demonstration <span>↗</span></a>
+            <a class="resource-link" href="https://www.youtube.com/watch?v=SsBYdyZPIy8" target="_blank" rel="noopener">Wooting · CS2 settings and profiles <span>↗</span></a>
+            <a class="resource-link" href="https://www.youtube.com/watch?v=kb0GxgNho3c" target="_blank" rel="noopener">Optimum · Independent Wooting 60HE v2 review <span>↗</span></a>
+          </div>
+          <h3>GunZ movement references</h3>
+          <p class="reference-note">These helped me check the GunZ movement and timing. They do not choose the right Rapid Trigger values for you.</p>
+          <div class="resource-grid">
+            <a class="resource-link" href="https://github.com/TriForceX/OpenGunZ/blob/master/src/Gunz/ZGameInput.cpp#L31-L55" target="_blank" rel="noopener">OpenGunZ source · Direction sequence and 200 ms limit <span>↗</span></a>
+            <a class="resource-link" href="https://www.youtube.com/watch?v=OOZllmjE8RM" target="_blank" rel="noopener">GunZ Academy · Beginner's Guide to GunZ: The Duel <span>↗</span></a>
+            <a class="resource-link" href="https://www.youtube.com/watch?v=FxlyAiZUvzY" target="_blank" rel="noopener">GunZ Academy · Comprehensive K-Style Guide <span>↗</span></a>
+          </div>
+          <h3>My notes and direct help</h3>
+          <div class="resource-grid"><a class="resource-link remember-position" href="research-notebook.html">My Research Notebook <span>→</span></a><a class="resource-link" href="https://discord.gg/tKZ5mjnEpj" target="_blank" rel="noopener">Alpha Discord · Ask me for help <span>↗</span></a></div>
+        </article>
+        <aside class="next-callout"><div><span>Continue in the Research Notebook</span><h3>See the full GunZ test history.</h3><p>The Research Notebook shows the standstill test, movement-chain test, enemy-and-aim test, actuation change, and final retune in order.</p></div><a class="button primary remember-position" href="research-notebook.html#method">Open the method timeline</a></aside>
+      </div>
+    </section>
+  </main>
+
+  <aside class="term-panel" id="termPanel" role="dialog" aria-labelledby="termPanelTitle" aria-hidden="true"><div class="term-panel-head"><span class="term-panel-label">Guide term</span><button class="term-panel-close" id="termPanelClose" type="button" aria-label="Close definition">×</button></div><h2 id="termPanelTitle"></h2><div id="termPanelBody"></div><a class="term-panel-glossary" id="termPanelLink" href="#glossary">Open the full glossary entry →</a></aside>
+
+  <footer class="site-footer"><div class="help-strip"><span>Need help or want to compare a result?</span><a href="https://discord.gg/tKZ5mjnEpj" target="_blank" rel="noopener">Join Alpha on Discord ↗</a></div><span>Rapid Trigger for GunZ · Personal testing method by Hypnatiq</span></footer>
+  <a class="back-to-top" id="backToTop" href="#top" aria-label="Back to top">↑</a>
+  <button class="return-to-reading" id="returnToReading" type="button">← Back to where I was reading</button>
+
+  <script src="revision-26-translations.js?v=2.6.0"></script>
+  <script src="site.js?v=2.6.0"></script>
+</body>
+</html>
