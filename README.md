@@ -1,10 +1,18 @@
 # Rapid Trigger for GunZ
 
-A research and tuning guide I built to understand how Hall-effect Rapid Trigger settings affect movement in GunZ: The Duel.
+A community-focused research and tuning guide I built to help new and experienced GunZ: The Duel players understand how Hall-effect Rapid Trigger settings affect movement.
 
 **Live guide:** https://gunz-rt.netlify.app/
 
 Most Rapid Trigger advice starts with a preset. I wanted a method I could repeat and explain. This project changes one setting at a time, records what happened, keeps failed checkpoints, and separates manufacturer-documented behavior from my own GunZ testing.
+
+## Community purpose and Masangsoft review
+
+I built this as a community resource, not a universal preset. The goal is to give new and experienced players a controlled way to tune their keyboard around movement they already know, then validate the result in Training Room and real matches.
+
+On October 10, 2026, I submitted the guide to Masangsoft for consideration as an official or licensed community resource. Masangsoft confirmed that the proposal was forwarded to the relevant department for internal review.
+
+This is not an approval, license, endorsement, or partnership. The review is still pending.
 
 ## What is included
 
