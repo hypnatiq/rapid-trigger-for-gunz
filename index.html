@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="canonical" href="https://gunzinputlab.github.io/">
+  <link rel="canonical" href="https://gunz-rt.netlify.app/">
   <meta name="description" content="A GunZ-first Rapid Trigger guide for establishing actuation, tuning RT A re-press travel, cleaning RT D release travel, and validating the complete movement cycle.">
   <meta name="theme-color" content="#05080d">
   <meta name="author" content="Hypnatiq">
@@ -11,10 +11,10 @@
   <meta property="og:site_name" content="Rapid Trigger for GunZ">
   <meta property="og:title" content="Rapid Trigger for GunZ">
   <meta property="og:description" content="Start with a familiar actuation point, then tune RT A and RT D from the GunZ movement you already know.">
-  <meta property="og:url" content="https://gunzinputlab.github.io/">
-  <meta property="og:image" content="https://gunzinputlab.github.io/social-preview.png">
+  <meta property="og:url" content="https://gunz-rt.netlify.app/">
+  <meta property="og:image" content="https://gunz-rt.netlify.app/social-preview.png">
   <link rel="icon" href="favicon.png" type="image/png">
-  <link rel="stylesheet" href="site.css?v=2.6.0">
+  <link rel="stylesheet" href="site.css?v=2.7.0">
   <title>Rapid Trigger for GunZ</title>
 </head>
 <body>
@@ -71,10 +71,10 @@
       <div class="hero-inner">
         <div class="site-hero-grid">
           <div class="hero-lead">
-            <span class="version-stamp">Revision 2.6</span>
+            <span class="version-stamp">Revision 2.7</span>
             <span class="eyebrow" data-i18n="heroEye">A GunZ movement guide</span>
             <h1 data-i18n-html="heroTitle">Tune Rapid Trigger<br><span>for the way you move in GunZ.</span></h1>
-            <p class="lede" data-i18n="heroLead">Start with the slash shot, late dash, PPQ, or GDHS movement chain that continues to fail. This guide explains how your current Rapid Trigger settings may be causing the failure and helps you adjust the right distance for cleaner, more consistent movement.</p>
+            <p class="lede" data-i18n="heroLead">Start with the slash shot, late dash, PPQ, or GDHS movement chain that continues to fail. This guide helps you test whether keyboard travel is contributing to the failure, then adjust the right setting to make your movement cleaner and more consistent.</p>
             <div class="hero-actions">
               <a class="button primary" href="#controls" data-i18n="startMethod">Start the GunZ method</a>
               <a class="button" href="#tester" data-i18n="openTester">Open the cycle tester</a>
@@ -90,7 +90,7 @@
               <a href="#rtd"><b>03</b><span>The late dash does not clear</span><i>→</i></a>
               <a href="#troubleshoot"><b>04</b><span>I know the symptom, not the cause</span><i>→</i></a>
             </nav>
-            <div class="hero-result"><span>Latest FGunz checkpoint</span><strong>1.20 mm actuation · 0.35 mm RT A · 0.15 mm RT D</strong></div>
+            <div class="hero-result"><span>Latest FGunz checkpoint</span><strong>0.60 mm actuation · 0.15 mm RT A · 0.25 mm RT D</strong></div>
           </aside>
         </div>
         <article class="panel control-intro" id="controls"><h3 data-i18n="threeJobs">Tune three settings in this order.</h3>
@@ -103,13 +103,14 @@
           <p class="callout amber" data-i18n-html="distanceNotTime"><strong>These values are distances in millimeters, not timing values.</strong> A smaller distance can happen sooner under the same finger motion, but the real time still depends on your hand, keyboard scanning, game, and connection.</p>
         </article>
         <div class="gunz-path" aria-label="GunZ test path">
-          <a href="#base"><b>01 · Actuation</b><strong>Preserve the familiar first press</strong><span>Test with Rapid Trigger OFF before changing the repeat cycle.</span></a>
-          <a href="#rta"><b>02 · RT A</b><strong>Continue the movement</strong><span>Make the next dash or action repeat while moving alone.</span></a>
-          <a href="#rtd"><b>03 · RT D</b><strong>Clean the late-dash release</strong><span>Clear the first tap without making held movement unstable.</span></a>
-          <a href="#test"><b>04 · Validation</b><strong>Keep what still works</strong><span>Confirm the complete cycle in training, Clan War, and TDM.</span></a>
+          <article><b>01 · Actuation</b><strong>Preserve the familiar first press</strong><span>Test with Rapid Trigger OFF before changing the repeat cycle.</span><a class="detail-button path-action" href="#base" data-i18n="visitActuation">Visit Actuation →</a></article>
+          <article><b>02 · RT A</b><strong>Continue the movement</strong><span>Make the next dash or action repeat while moving alone.</span><a class="detail-button path-action" href="#rta" data-i18n="visitRta">Visit RT A →</a></article>
+          <article><b>03 · RT D</b><strong>Clean the late-dash release</strong><span>Clear the first tap without making held movement unstable.</span><a class="detail-button path-action" href="#rtd" data-i18n="visitRtd">Visit RT D →</a></article>
+          <article><b>04 · Validation</b><strong>Keep what still works</strong><span>Confirm the complete cycle in training, Clan War, and TDM.</span><a class="detail-button path-action" href="#test" data-i18n="visitValidation">Visit Validation →</a></article>
         </div>
         <p class="note" data-i18n-html="homeScope"><strong>This guide focuses on Hall Effect keyboard tuning.</strong> It shows how to adjust a Hall Effect keyboard, such as a Wooting, for cleaner and more efficient movement in GunZ. My current GunZ settings and full testing process are recorded in the Research Notebook.</p>
-        <div class="scope-actions"><a class="button remember-position" href="research-notebook.html#current-settings">Visit Hanz's settings →</a></div>
+        <p class="callout amber"><strong>Testing scope:</strong> every saved setting, checkpoint, and movement result in this guide was tested only in FreeStyle GunZ. Steam GunZ has not been tested yet, so this guide does not claim that the same values are validated there.</p>
+        <aside class="next-callout"><div><span>Revision 2.7 personal configuration</span><h3>See the exact setup behind Hanz's current FGunz checkpoint.</h3><p>Open the keyboard, FreeStyle GunZ, mouse, sensitivity, and crosshair record without leaving the public tuning method behind.</p></div><div class="scope-actions"><a class="button primary" href="hanz-fgunz-settings.html">Click here to see Hanz's FGunz Settings</a><a class="button" href="hanz-archive-vault.html">Open Hanz's Archive Vault</a></div></aside>
       </div>
     </section>
 
@@ -155,7 +156,7 @@
           <p class="note warning"><strong>Same values do not mean identical switches.</strong> This comparison matches actuation depth and total travel so the first press is easy to understand. Spring force, force curve, housing, calibration, reset behavior, and bottom-out feel can still differ.</p>
           <p class="callout good"><strong>Actuation is the first-press anchor.</strong> Rapid Trigger will later shorten the release and re-press cycle, but the player can keep the familiar 2.00 mm first press until testing shows a reason to change it.</p>
         </article>
-        <aside class="next-callout"><div><span>End of the key-travel explanation</span><h3>Choose one familiar actuation point next.</h3><p>Use the comparison tool to watch both switches move, or continue into the practical GunZ and typing test.</p></div><div class="next-callout-actions"><a class="button primary" href="#base">Continue to actuation →</a><a class="button" href="rapid-trigger-cycle-tester.html?v=2.6.0&amp;mode=transition" target="_blank" rel="noopener">Compare both key travels ↗</a></div></aside>
+        <aside class="next-callout"><div><span>End of the key-travel explanation</span><h3>Choose one familiar actuation point next.</h3><p>Use the comparison tool to watch both switches move, or continue into the practical GunZ and typing test.</p></div><div class="next-callout-actions"><a class="button primary" href="#base">Continue to actuation →</a><a class="button" href="rapid-trigger-cycle-tester.html?v=2.7.0&amp;mode=transition" target="_blank" rel="noopener">Compare both key travels ↗</a></div></aside>
       </div>
     </section>
 
@@ -207,20 +208,20 @@
 
     <section class="chapter tracked-section" id="tester" data-page="07" data-title="Rapid Trigger Cycle Tester">
       <div class="chapter-inner">
-        <header class="chapter-header"><span class="kicker">Page 07 · Connect the move to the switch</span><h2 data-i18n="testerTitle">Rapid Trigger Cycle Tester</h2><p data-i18n="testerIntro">The tester follows one directional key from the first press, through release, to the second press. Compare the saved starting profile with the latest FGunz result, then change one value to see which part of that cycle moves.</p><p class="tester-stage-note"><strong>Two stages of the same tune:</strong> Training Room brought the new 1.20 mm actuation baseline to 0.80 mm RT A and 0.30 mm RT D. Clan War and Team Deathmatch then brought the full-map result to 0.35 mm RT A and 0.15 mm RT D. These are my test records, not universal presets.</p></header>
+        <header class="chapter-header"><span class="kicker">Page 07 · Connect the move to the switch</span><h2 data-i18n="testerTitle">Rapid Trigger Cycle Tester</h2><p data-i18n="testerIntro">The tester follows one directional key from the first press, through release, to the second press. Compare a saved starting profile with the current FGunz result, then change one value to see which part of that cycle moves.</p><p class="tester-stage-note"><strong>FreeStyle GunZ evidence only:</strong> Revision 2.7 uses 0.60 mm actuation, 0.15 mm RT A, and 0.25 mm RT D with a Wooting 60HE and Gateron Magnetic Jade switches. Earlier 1.20 mm and 1.00 mm checkpoints remain available as evidence and known bases, not universal presets. Steam GunZ remains untested.</p></header>
         <article class="panel tester-launch-panel">
           <div class="tester-launch-copy">
             <span class="kicker">Dedicated interactive tool</span>
             <h3>Open the Cycle Tester in a new tab.</h3>
             <p>The tester needs a full-width workspace for the switch, travel rail, Live Checker, profile notes, and Event History to stay readable together. Opening it separately also keeps your place in this guide.</p>
             <ul class="brief-list tester-launch-list">
-              <li>Compare the Clan War / TDM checkpoint with the Training Room result.</li>
+              <li>Compare the current Clan War / TDM checkpoint with the saved Training Room result and the mechanical-to-Hall-Effect switch models.</li>
               <li>Enter your own actuation, RT A, RT D, and bottom-out values.</li>
               <li>Follow each press, release, direction change, and second tap in Event History.</li>
             </ul>
           </div>
           <div class="tester-launch-action">
-            <a class="button primary tester-launch-button" href="rapid-trigger-cycle-tester.html?v=2.6.0" target="_blank" rel="noopener">Open the Cycle Tester ↗</a>
+            <a class="button primary tester-launch-button" href="rapid-trigger-cycle-tester.html?v=2.7.0" target="_blank" rel="noopener">Open the Cycle Tester ↗</a>
             <small>Opens in a new browser tab.</small>
           </div>
         </article>
@@ -318,7 +319,7 @@
   <a class="back-to-top" id="backToTop" href="#top" aria-label="Back to top">↑</a>
   <button class="return-to-reading" id="returnToReading" type="button">← Back to where I was reading</button>
 
-  <script src="revision-26-translations.js?v=2.6.0"></script>
-  <script src="site.js?v=2.6.0"></script>
+  <script src="revision-27-translations.js?v=2.7.0"></script>
+  <script src="site.js?v=2.7.0"></script>
 </body>
 </html>

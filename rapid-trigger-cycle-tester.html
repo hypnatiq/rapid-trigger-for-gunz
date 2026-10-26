@@ -54,6 +54,8 @@
   .mode-switch>span{margin-right:3px;color:#7f9bb5;font:800 11px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.12em}
   .mode-btn{border:1px solid #24425a;background:#07121e;color:#a9c4dc;border-radius:999px;padding:9px 13px;font-weight:850;cursor:pointer}
   .mode-btn.active{border-color:#45d9ff;background:#0b2b3e;color:#effbff}
+  .test-scope{margin:-2px 0 14px;color:#93b2ce;font-size:13px;line-height:1.5}
+  .test-scope strong{color:#dff5ff}
   [hidden]{display:none!important}
   .profile-btn{
     border:1px solid #1d425e;background:#081726;color:#cbe8ff;
@@ -83,9 +85,33 @@
   body.awaiting-values .card.full{opacity:.24;pointer-events:none}
   .profile-btn small{display:block;margin-top:4px;font:700 11px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#83a7c5}
   .profile-btn.active small{color:#d7f4ff}
+  .profile-btn.steam-placeholder{border-color:#607084;background:#101923;color:#c7d1dc;cursor:default}
+  .profile-btn.steam-placeholder:hover{transform:none;border-color:#7e8c9b}
+  .profile-btn.steam-placeholder small{color:#94a4b5}
   body.mechanical-profile .magnet-block{display:none}
 body.mechanical-profile #rtaField,
 body.mechanical-profile #rtdField{display:none}
+
+  .tester-stage{position:relative}
+  .tester-stage .grid{transition:filter .22s ease,opacity .22s ease}
+  body.steam-preview .tester-stage .grid{
+    filter:blur(6px);opacity:.28;pointer-events:none;user-select:none
+  }
+  .steam-coming-soon{
+    position:absolute;inset:0;z-index:80;display:grid;place-items:center;min-height:720px;
+    padding:40px;text-align:center;
+    background:radial-gradient(circle at 50% 43%,rgba(255,255,255,.14),rgba(255,255,255,.045) 34%,rgba(255,255,255,.01) 68%);
+    backdrop-filter:blur(1.5px)
+  }
+  .steam-coming-soon-inner{max-width:620px;color:#fff;text-shadow:0 3px 22px rgba(0,0,0,.78)}
+  .steam-warning-icon{
+    margin:0 auto 14px;color:rgba(255,255,255,.78);font-size:clamp(76px,10vw,138px);line-height:1;
+    filter:drop-shadow(0 10px 28px rgba(0,0,0,.5));animation:steam-warning-pulse 2.6s ease-in-out infinite
+  }
+  .steam-coming-soon strong{display:block;font-size:clamp(34px,5vw,68px);letter-spacing:-.035em}
+  .steam-coming-soon p{max-width:560px;margin:12px auto 0;color:rgba(255,255,255,.84);font-size:16px;line-height:1.6}
+  @keyframes steam-warning-pulse{0%,100%{opacity:.48}50%{opacity:.86}}
+  @media (prefers-reduced-motion:reduce){.steam-warning-icon{animation:none;opacity:.74}}
 
   .grid{
     display:grid;
@@ -655,10 +681,12 @@ body.mechanical-profile #rtdField{display:none}
   <div class="mode-switch" aria-label="Choose what to study">
     <span>Choose what to study</span>
     <button class="mode-btn active" data-mode="method">My FGunz method</button>
+    <button class="mode-btn" data-mode="steam">My SteamGunZ Method</button>
     <button class="mode-btn" data-mode="transition">Cherry MX Red vs Lekker V2 L60</button>
   </div>
+  <p class="test-scope"><strong>Testing scope:</strong> the saved profiles and movement results below come only from FreeStyle GunZ. Steam GunZ testing has not started yet.</p>
   <div class="profile-strip" data-profile-group="method">
-    <button class="profile-btn active" data-profile="pvp">Clan War / TDM<small>1.20 A · .35 RT-A · .15 RT-D</small></button>
+    <button class="profile-btn active" data-profile="pvp">Clan War / TDM<small>.60 A · .15 RT-A · .25 RT-D</small></button>
     <button class="profile-btn" data-profile="training">Training Room<small>1.20 A · .80 RT-A · .30 RT-D</small></button>
     <button class="profile-btn profile-custom" data-profile="custom">See your profile<small>Enter your keyboard values</small></button>
   </div>
@@ -666,7 +694,12 @@ body.mechanical-profile #rtdField{display:none}
     <button class="profile-btn" data-profile="mechanical">Ducky One 2 · Cherry MX Red<small>2.00 A · fixed reset · 4.00 bottom</small></button>
     <button class="profile-btn" data-profile="heTransition">Wooting · Lekker V2 L60<small>2.00 A · 1.80 RT-A · .55 RT-D · 4.00 bottom</small></button>
   </div>
+  <div class="profile-strip" data-profile-group="steam" hidden>
+    <button class="profile-btn steam-placeholder" type="button" aria-disabled="true">Clan War / TDM<small>-- A · -- RT-A · -- RT-D</small></button>
+    <button class="profile-btn steam-placeholder" type="button" aria-disabled="true">TDM<small>-- A · -- RT-A · -- RT-D</small></button>
+  </div>
 
+  <div class="tester-stage">
   <div class="grid">
     <section class="card settings">
       <div class="section-title">
@@ -703,17 +736,17 @@ body.mechanical-profile #rtdField{display:none}
 
       <div class="field">
         <label>Actuation point <span>mm from top</span></label>
-        <input id="act" type="number" min="0.01" max="10" step="0.01" value="1.20" placeholder="Enter your keyboard's actuation point" />
+        <input id="act" type="number" min="0.01" max="10" step="0.01" value="0.60" placeholder="Enter your keyboard's actuation point" />
       </div>
 
       <div id="rtaField" class="field">
         <label><span id="rtaLabel">RT-A</span> <span id="rtaHelp">downward travel after you stop lifting and press again</span></label>
-        <input id="rta" type="number" min="0.01" max="10" step="0.01" value="0.35" placeholder="Enter your keyboard's RT A" />
+        <input id="rta" type="number" min="0.01" max="10" step="0.01" value="0.15" placeholder="Enter your keyboard's RT A" />
       </div>
 
       <div id="rtdField" class="field">
         <label><span id="rtdLabel">RT-D</span> <span id="rtdHelp">upward travel before the keyboard recognizes release</span></label>
-        <input id="rtd" type="number" min="0.01" max="10" step="0.01" value="0.15" placeholder="Enter your keyboard's RT D" />
+        <input id="rtd" type="number" min="0.01" max="10" step="0.01" value="0.25" placeholder="Enter your keyboard's RT D" />
       </div>
 
       <div class="field">
@@ -821,7 +854,7 @@ body.mechanical-profile #rtdField{display:none}
           </div>
           <div class="travel-sidecar switch-controls">
             <div class="travel-footer">
-              <div class="mini-readout"><div id="releasePreviewLabel" class="k">Release distance</div><div id="releasePreview" class="v">0.00 / 0.15 mm</div></div>
+              <div class="mini-readout"><div id="releasePreviewLabel" class="k">Release distance</div><div id="releasePreview" class="v">0.00 / 0.25 mm</div></div>
               <div class="mini-readout"><div class="k">Key-travel status</div><div id="nextOnPreview" class="v">Waiting after release</div></div>
             </div>
             <div class="controls">
@@ -845,7 +878,7 @@ body.mechanical-profile #rtdField{display:none}
               <div id="fill" class="fill"></div>
               <div id="handle" class="handle"></div>
 
-              <div id="mAct" class="marker right act">First tap recognized · 1.20</div>
+              <div id="mAct" class="marker right act">First tap recognized · 0.60</div>
               <div id="mReady" class="marker right ready">RT-A boundary · 2.15</div>
               <div id="mOff" class="marker right off">Release · 2.95</div>
               <div id="mRev" class="marker left rev" style="display:none">Press-down start · 0.00</div>
@@ -875,7 +908,7 @@ body.mechanical-profile #rtdField{display:none}
             <div class="state-box">
               <div class="rowline"><span>Current</span><span id="currentVal">0.00 mm</span></div>
               <div class="rowline"><span>Deepest active point</span><span id="deepestVal">Not set</span></div>
-              <div class="rowline"><span id="releaseValLabel">Release distance</span><span id="releaseVal">0.00 / 0.35 mm</span></div>
+              <div class="rowline"><span id="releaseValLabel">Release distance</span><span id="releaseVal">0.00 / 0.25 mm</span></div>
               <div class="progress red"><div id="releaseProgress"></div></div>
             </div>
 
@@ -892,11 +925,11 @@ body.mechanical-profile #rtdField{display:none}
             <div class="analysis-head">
               <div class="eyebrow">What this profile changes</div>
               <h2 id="analysisTitle">Clan War / TDM</h2>
-              <p id="analysisSummary">This is the FGunz result I saved after training, then testing it first in Clan War, my preferred higher-skill mode, with Team Deathmatch as another full-map validation.</p>
+              <p id="analysisSummary">This is my current Wooting 60HE checkpoint for FreeStyle GunZ: 0.60 mm actuation, 0.15 mm RT A, and 0.25 mm RT D.</p>
             </div>
-            <div class="analysis-block analysis-pros"><h3>What may improve</h3><ul id="profilePros"><li>The lower RT D value may make the key release sooner when I lift my finger.</li><li>The lower RT A value may make the next tap register sooner when I press again.</li><li>That may help the late dash stay clean and keep slash shot closer to my normal aim timing.</li></ul></div>
-            <div class="analysis-block analysis-cons"><h3>What to watch</h3><ul id="profileCons"><li>Low RT values may react to a small finger bounce or pressure change that I did not mean to send.</li><li>These values are my personal checkpoint, not a preset for every player.</li><li>A different switch, hand motion, or actuation point may change the result.</li></ul></div>
-            <div id="profilePath" class="analysis-path"><strong>How I reached it:</strong> I returned to the 0.60 mm RT A and 0.55 mm RT D base I knew I could clear. Training reached 0.80 mm RT A and 0.30 mm RT D with good late dashes. Clan War then brought the result to 0.35 mm RT A and 0.15 mm RT D, with Team Deathmatch as another validation.</div>
+            <div class="analysis-block analysis-pros"><h3>What may improve</h3><ul id="profilePros"><li>0.60 mm actuation reduces the first-press travel compared with my earlier 1.20 mm and 1.00 mm bases.</li><li>0.15 mm RT A keeps the next press close to the movement rhythm I intend.</li><li>0.25 mm RT D preserves more release margin than my earlier 0.15 mm checkpoint while still clearing the late dash.</li></ul></div>
+            <div class="analysis-block analysis-cons"><h3>What to watch</h3><ul id="profileCons"><li>Shallow actuation can react to resting pressure or an unintended touch.</li><li>These values are my current personal checkpoint, not a universal preset.</li><li>A different switch, hand motion, client, or pace may need different values.</li></ul></div>
+            <div id="profilePath" class="analysis-path"><strong>How I reached it:</strong> I preserved 1.20 mm and 1.00 mm as tested bases, then moved to 0.60 mm because it held up better across longer, higher-pace FreeStyle GunZ sessions. I paired it with 0.15 mm RT A and 0.25 mm RT D, changing one part of the cycle at a time.</div>
           </aside>
           </div>
           <section class="event-history-panel">
@@ -923,6 +956,14 @@ body.mechanical-profile #rtdField{display:none}
     </section>
 
   </div>
+  <div id="steamComingSoon" class="steam-coming-soon" role="status" aria-live="polite" hidden>
+    <div class="steam-coming-soon-inner">
+      <div class="steam-warning-icon" aria-hidden="true">⚠</div>
+      <strong>Coming Soon!</strong>
+      <p>The Steam GunZ method will remain locked until the same movement cycle has been tested and recorded there.</p>
+    </div>
+  </div>
+  </div>
 </div>
 
 <script>
@@ -935,7 +976,7 @@ body.mechanical-profile #rtdField{display:none}
       title:"Clan War / TDM · current FGunz checkpoint",
       badge:"CLAN WAR / TDM",
       switch:"jade",
-      act:1.20, rtd:0.15, rta:0.35
+      act:0.60, rtd:0.25, rta:0.15
     },
     training:{
       title:"Training Room · controlled movement",
@@ -1019,7 +1060,7 @@ body.mechanical-profile #rtdField{display:none}
     reversalVal:$("reversalVal"), reentryMode:$("reentryMode"), nextOnTarget:$("nextOnTarget"), nextOnPreview:$("nextOnPreview"),
     downProgress:$("downProgress"), log:$("log"),
     analysisTitle:$("analysisTitle"), analysisSummary:$("analysisSummary"), profilePros:$("profilePros"),
-    profileCons:$("profileCons"), profilePath:$("profilePath"), testerLede:$("testerLede"), miniOffLabel:$("miniOffLabel"), miniReadyLabel:$("miniReadyLabel"),
+    profileCons:$("profileCons"), profilePath:$("profilePath"), testerLede:$("testerLede"), steamComingSoon:$("steamComingSoon"), miniOffLabel:$("miniOffLabel"), miniReadyLabel:$("miniReadyLabel"),
     cycleTitle1:$("cycleTitle1"), cycleText1:$("cycleText1"), cycleTitle2:$("cycleTitle2"), cycleText2:$("cycleText2"),
     cycleTitle3:$("cycleTitle3"), cycleText3:$("cycleText3"), cycleTitle4:$("cycleTitle4"), cycleText4:$("cycleText4"),
     cycleTitle5:$("cycleTitle5"), cycleText5:$("cycleText5"), cycleTitle6:$("cycleTitle6"), cycleText6:$("cycleText6")
@@ -1119,18 +1160,18 @@ body.mechanical-profile #rtdField{display:none}
     }
     if (c.profile === "pvp") {
       els.analysisTitle.textContent = "Clan War / TDM";
-      els.analysisSummary.textContent = "This is the FGunz result I saved after training, then testing it first in Clan War, my preferred higher-skill mode, with Team Deathmatch as another full-map validation.";
+      els.analysisSummary.textContent = "This is my current Wooting 60HE with Gateron Magnetic Jade switch checkpoint for FreeStyle GunZ: 0.60 mm actuation, 0.15 mm RT A, and 0.25 mm RT D.";
       fillList(els.profilePros, [
-        "The 0.15 mm RT D value may make the key release sooner when I lift my finger. That helped my late dash stay clean.",
-        "The 0.35 mm RT A value may make the next tap register sooner when I press again. That helped slash shot stay closer to my normal firing rhythm.",
-        "I kept these values only after they worked in Clan War, where the higher-skill pace left less room for errors, and in Team Deathmatch as another validation."
+        "0.60 mm actuation reduces the first-press travel compared with my earlier 1.20 mm and 1.00 mm bases.",
+        "0.15 mm RT A keeps the next press close to the movement rhythm I intend.",
+        "0.25 mm RT D preserves more release margin than my earlier 0.15 mm checkpoint while still clearing the late dash."
       ]);
       fillList(els.profileCons, [
-        "These low RT values may react to a small finger bounce or pressure change that I did not mean to send.",
-        "They are my personal checkpoint, not a preset that every player should copy.",
-        "A different switch, actuation point, hand motion, or client may change which values feel consistent."
+        "Shallow actuation can react to resting pressure or an unintended touch.",
+        "These values are my current personal checkpoint, not a universal preset.",
+        "A different switch, hand motion, client, or pace may need different values."
       ]);
-      els.profilePath.innerHTML = "<strong>How I reached it:</strong> I returned to the 0.60 mm RT A and 0.55 mm RT D base I knew I could clear. Training reached 0.80 mm RT A and 0.30 mm RT D with good late dashes. Clan War then brought the result to 0.35 mm RT A and 0.15 mm RT D, with Team Deathmatch as another validation. I did not use Hall Duel as the final proof because most fights there stay mainly left and right.";
+      els.profilePath.innerHTML = "<strong>How I reached it:</strong> I preserved 1.20 mm and 1.00 mm as tested bases, then moved to 0.60 mm because it held up better across longer, higher-pace FreeStyle GunZ sessions. I paired it with 0.15 mm RT A and 0.25 mm RT D, changing one part of the cycle at a time.";
       return;
     }
     if (c.profile === "training") {
@@ -1395,11 +1436,20 @@ body.mechanical-profile #rtdField{display:none}
   }
 
   function applyMode(mode) {
-    state.currentMode = mode === "transition" ? "transition" : "method";
+    state.currentMode = ["method", "steam", "transition"].includes(mode) ? mode : "method";
     document.querySelectorAll("[data-profile-group]").forEach(group => {
       group.hidden = group.dataset.profileGroup !== state.currentMode;
     });
     document.querySelectorAll(".mode-btn").forEach(btn => btn.classList.toggle("active", btn.dataset.mode === state.currentMode));
+    const steamPreview = state.currentMode === "steam";
+    document.body.classList.toggle("steam-preview", steamPreview);
+    els.steamComingSoon.hidden = !steamPreview;
+    if (steamPreview) {
+      finishAuto();
+      document.querySelectorAll(".profile-btn").forEach(btn => btn.classList.remove("active"));
+      els.testerLede.innerHTML = 'Steam GunZ has not been tested yet. The profile choices are reserved for the same controlled movement checks after testing begins.';
+      return;
+    }
     applyProfile(state.currentMode === "transition" ? "mechanical" : "pvp");
   }
 
@@ -2029,7 +2079,7 @@ body.mechanical-profile #rtdField{display:none}
     if (e.key === "End") { e.preventDefault(); setPosition(c.bo); }
   });
 
-  document.querySelectorAll(".profile-btn").forEach(btn => {
+  document.querySelectorAll(".profile-btn[data-profile]").forEach(btn => {
     btn.addEventListener("click", () => {
       const name = btn.dataset.profile;
       applyProfile(name);
@@ -2194,7 +2244,7 @@ body.mechanical-profile #rtdField{display:none}
   addEventListener("load", reportHeight);
 
   const requestedMode = new URLSearchParams(location.search).get("mode");
-  applyMode(requestedMode === "transition" ? "transition" : "method");
+  applyMode(["method", "steam", "transition"].includes(requestedMode) ? requestedMode : "method");
 })();
 </script>
 </body>

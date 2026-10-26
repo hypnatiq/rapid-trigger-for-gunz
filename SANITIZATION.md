@@ -15,4 +15,4 @@
 
 ## Required review before upload
 
-Run the workspace confidentiality scan, internal-link check, and file manifest comparison. Review every changed line against the current live Revision 2.6 package before any external push.
+Run the workspace confidentiality scan, internal-link check, and file manifest comparison. Review every changed line against the current live Revision 2.7 package before any external push.

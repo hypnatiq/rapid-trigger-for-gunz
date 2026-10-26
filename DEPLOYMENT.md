@@ -14,7 +14,7 @@ The current public site is `https://gunz-rt.netlify.app/`. The Netlify package h
 
 ## Post-deployment validation
 
-- Confirm the displayed release is Revision 2.6.
+- Confirm the displayed release is Revision 2.7.
 - Test navigation, theme control, definitions, image viewer, translations, saved reading position, and cycle tester.
 - Test at desktop, tablet, and phone widths.
 - Confirm no horizontal page overflow except inside intentionally scrollable tables.
