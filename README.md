@@ -75,7 +75,7 @@ The review is still pending. This is not an approval, license, endorsement, or p
 - `revision-27-translations.js`: the active translation structure; English is the reviewed source, and other languages still need fluent review before being called final
 - `DEPLOYMENT.md`: the repository and live-site relationship plus post-deployment checks
 
-## Evidence boundary
+## Evidence limits
 
 - Manufacturer sources explain Hall-effect and Rapid Trigger behavior.
 - GunZ application, tuning order, symptom interpretation, and pass conditions come from my personal testing.
