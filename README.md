@@ -2,6 +2,12 @@
 
 A community-focused GunZ guide and personal research notebook by Hypnatiq.
 
+## What this project demonstrates
+
+This is a gaming project, but the method is the same one I use in technical work: preserve a known baseline, change one variable at a time, record the result, keep rollback points, and separate a personal test result from a universal recommendation.
+
+I keep it on GitHub because the testing history, evidence boundaries, and revision discipline are useful parts of the project. It is not part of my current resume or LinkedIn project lineup.
+
 ## Revision 2.7
 
 Revision 2.7 records Hanz's current FreeStyle GunZ configuration and preserves the prior
