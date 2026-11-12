@@ -2,7 +2,7 @@
 
 I built this guide to answer a practical GunZ question: when a Hall-effect keyboard feels inconsistent, which setting should I test first, and how do I know whether the change actually helped?
 
-This is a community guide and personal testing record. It is not a universal preset. I keep it on GitHub because the baseline, one-change-at-a-time method, failed results, rollback points, and evidence limits are useful parts of the project. It remains GitHub-only and is not part of my current resume or LinkedIn project lineup.
+This is my community guide and personal testing record. I keep it on GitHub because the baseline, one-change-at-a-time method, failed results, rollback points, and evidence limits are useful parts of the project. The recorded values are starting points for comparison, not universal presets. The project remains GitHub-only and is not part of my current resume or LinkedIn project lineup.
 
 ## Why I built it
 
@@ -89,3 +89,4 @@ The review is still pending. This is not an approval, license, endorsement, or p
 This repository contains the current Revision 2.7 source. Publishing or replacing the live site is a separate action and requires its own version, link, responsive-layout, tester, and cache validation. Preparing or committing the source does not by itself prove that a public deployment changed.
 
 Copyright 2026 Hanzley Philippeaux. See [LICENSE.md](LICENSE.md), [SECURITY.md](SECURITY.md), and [SANITIZATION.md](SANITIZATION.md).
+
