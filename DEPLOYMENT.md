@@ -2,15 +2,15 @@
 
 ## GitHub repository
 
-1. Use `hypnatiq/rapid-trigger-for-gunz` as the public source repository.
-2. Keep the complete repository root together, including `.nojekyll` and every file referenced by the HTML.
-3. Review the commit diff before publishing or copying the source to another deployment repository.
-4. If GitHub Pages is enabled elsewhere, serve from the repository root or a dedicated Pages branch without a build command.
-5. Confirm `index.html`, `research-notebook.html`, `hanz-fgunz-settings.html`, `hanz-archive-vault.html`, and `rapid-trigger-cycle-tester.html` load directly.
+1. Open [`hypnatiq/rapid-trigger-for-gunz`](https://github.com/hypnatiq/rapid-trigger-for-gunz).
+2. Upload the contents of the GitHub-ready folder to the repository root. This package is intentionally flat and includes `.nojekyll`.
+3. Review the complete commit diff before committing.
+4. Confirm `README.md`, `index.html`, `research-notebook.html`, and `rapid-trigger-cycle-tester.html` are present at the repository root.
+5. Deploy the separate Netlify-ready package when the public site should receive the same update.
 
 ## Netlify relationship
 
-The current public-site address is `https://gunz-rt.netlify.app/`. The Netlify package and this source repository can contain deployment-specific differences. Compare the intended files and active asset references before replacing either package.
+The current public site is `https://gunz-rt.netlify.app/`. The Netlify package has deployment-specific files and uses `crosshair2.png`; the GitHub package uses `.nojekyll` and `crosshair2-green.png`. Do not replace one package with the other without comparing those intended differences.
 
 ## Post-deployment validation
 

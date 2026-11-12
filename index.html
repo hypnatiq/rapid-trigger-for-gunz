@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://gunz-rt.netlify.app/">
   <meta property="og:image" content="https://gunz-rt.netlify.app/social-preview.png">
   <link rel="icon" href="favicon.png" type="image/png">
-  <link rel="stylesheet" href="site.css?v=2.7.0">
+  <link rel="stylesheet" href="site.css?v=2.7.1">
   <title>Rapid Trigger for GunZ</title>
 </head>
 <body>
@@ -108,8 +108,8 @@
           <article><b>03 · RT D</b><strong>Clean the late-dash release</strong><span>Clear the first tap without making held movement unstable.</span><a class="detail-button path-action" href="#rtd" data-i18n="visitRtd">Visit RT D →</a></article>
           <article><b>04 · Validation</b><strong>Keep what still works</strong><span>Confirm the complete cycle in training, Clan War, and TDM.</span><a class="detail-button path-action" href="#test" data-i18n="visitValidation">Visit Validation →</a></article>
         </div>
-        <p class="note" data-i18n-html="homeScope"><strong>This guide focuses on Hall Effect keyboard tuning.</strong> It shows how to adjust a Hall Effect keyboard, such as a Wooting, for cleaner and more efficient movement in GunZ. My current GunZ settings and full testing process are recorded in the Research Notebook.</p>
-        <p class="callout amber"><strong>Testing conditions:</strong> every saved setting, checkpoint, and movement result in this guide was tested only in FreeStyle GunZ. Steam GunZ has not been tested yet, so this guide does not claim that the same values are validated there.</p>
+        <p class="note" data-i18n-html="homeScope"><strong>I built this guide around Hall Effect keyboard tuning for GunZ.</strong> It helps you test actuation, RT A, and RT D without treating my values as a universal preset. My current GunZ settings and the full test record are in the Research Notebook.</p>
+        <p class="callout amber"><strong>What I tested:</strong> every saved setting, checkpoint, and movement result in this guide was tested only in FreeStyle GunZ. Steam GunZ has not been tested yet, so I do not claim that the same values are validated there.</p>
         <aside class="next-callout"><div><span>Revision 2.7 personal configuration</span><h3>See the exact setup behind my current FGunz checkpoint.</h3><p>Open my keyboard, FreeStyle GunZ, mouse, sensitivity, and crosshair record without leaving the public tuning method behind.</p></div><div class="scope-actions"><a class="button primary" href="hanz-fgunz-settings.html">Open my FGunz settings</a><a class="button" href="hanz-archive-vault.html">Open my Archive Vault</a></div></aside>
       </div>
     </section>
@@ -148,7 +148,7 @@
         </article>
         <article class="panel stack-card transition-example" id="mechanical-to-he">
           <div class="card-title-row"><div><span class="layer-label">Mechanical-to-Hall Effect actuation comparison</span><h3>Compare the same 2.00 mm actuation and 4.00 mm travel.</h3></div></div>
-          <p class="transition-intro"><strong>Cherry MX Red comes first because it supplies the familiar fixed reference.</strong> The Hall Effect side uses a Wooting-compatible Lekker V2 L60, a medium linear 40-60 gf switch with the same 4.00 mm total travel. Its actuation is set to 2.00 mm for this comparison. The switches do not have identical force curves or reset behavior; the shared values isolate where the first input begins.</p>
+          <p class="transition-intro"><strong>Cherry MX Red comes first because it supplies the familiar fixed reference.</strong> The Hall Effect side uses a Wooting-compatible Lekker V2 L60, a medium linear 40–60 gf switch with the same 4.00 mm total travel. Its actuation is set to 2.00 mm for this comparison. The switches do not have identical force curves or reset behavior; the shared values isolate where the first input begins.</p>
           <div class="transition-columns">
             <section class="travel-card mechanical-travel"><span class="travel-label">CHERRY MX RED · MECHANICAL</span><h4>Ducky One 2 · fixed first-press point</h4><div class="value-line"><b>2.00 mm actuation</b><span>4.00 mm total travel</span></div><ol class="travel-sequence"><li><b>Begin at 0.00 mm:</b> the key is fully released and OFF.</li><li><b>Press to 2.00 mm:</b> the fixed mechanical contact sends the first input.</li><li><b>Continue to 4.00 mm:</b> the key bottoms out and remains ON.</li><li><b>Lift back through its fixed reset behavior:</b> the switch turns OFF before another press can be recognized.</li><li><b>Press through 2.00 mm again:</b> the next input turns ON at the same fixed point.</li></ol><p><strong>What is fixed:</strong> the switch construction determines where the input actuates and resets. Software does not move the Cherry MX Red contact point.</p></section>
             <section class="travel-card he-travel"><span class="travel-label">LEKKER V2 L60 · HALL EFFECT</span><h4>Wooting-compatible · configured to the same first press</h4><div class="value-line"><b>2.00 mm actuation</b><span>4.00 mm total travel</span></div><ol class="travel-sequence"><li><b>Begin at 0.00 mm:</b> the key is fully released and OFF.</li><li><b>Press to the configured 2.00 mm point:</b> the keyboard sends the first input at the familiar depth.</li><li><b>Continue to 4.00 mm:</b> the key bottoms out and remains ON.</li><li><b>With Rapid Trigger OFF, lift through the configured actuation boundary:</b> the keyboard recognizes the release.</li><li><b>Press through 2.00 mm again:</b> the next input turns ON at the same configured point.</li></ol><p><strong>What becomes adjustable:</strong> the Hall sensor continuously measures key position, so software can move the actuation point without changing the physical switch.</p></section>
@@ -156,7 +156,7 @@
           <p class="note warning"><strong>Same values do not mean identical switches.</strong> This comparison matches actuation depth and total travel so the first press is easy to understand. Spring force, force curve, housing, calibration, reset behavior, and bottom-out feel can still differ.</p>
           <p class="callout good"><strong>Actuation is the first-press anchor.</strong> Rapid Trigger will later shorten the release and re-press cycle, but the player can keep the familiar 2.00 mm first press until testing shows a reason to change it.</p>
         </article>
-        <aside class="next-callout"><div><span>End of the key-travel explanation</span><h3>Choose one familiar actuation point next.</h3><p>Use the comparison tool to watch both switches move, or continue into the practical GunZ and typing test.</p></div><div class="next-callout-actions"><a class="button primary" href="#base">Continue to actuation →</a><a class="button" href="rapid-trigger-cycle-tester.html?v=2.7.0&amp;mode=transition" target="_blank" rel="noopener">Compare both key travels ↗</a></div></aside>
+        <aside class="next-callout"><div><span>End of the key-travel explanation</span><h3>Choose one familiar actuation point next.</h3><p>Use the comparison tool to watch both switches move, or continue into the practical GunZ and typing test.</p></div><div class="next-callout-actions"><a class="button primary" href="#base">Continue to actuation →</a><a class="button" href="rapid-trigger-cycle-tester.html?v=2.7.1&amp;mode=transition" target="_blank" rel="noopener">Compare both key travels ↗</a></div></aside>
       </div>
     </section>
 
@@ -221,7 +221,7 @@
             </ul>
           </div>
           <div class="tester-launch-action">
-            <a class="button primary tester-launch-button" href="rapid-trigger-cycle-tester.html?v=2.7.0" target="_blank" rel="noopener">Open the Cycle Tester ↗</a>
+            <a class="button primary tester-launch-button" href="rapid-trigger-cycle-tester.html?v=2.7.1" target="_blank" rel="noopener">Open the Cycle Tester ↗</a>
             <small>Opens in a new browser tab.</small>
           </div>
         </article>
@@ -319,7 +319,7 @@
   <a class="back-to-top" id="backToTop" href="#top" aria-label="Back to top">↑</a>
   <button class="return-to-reading" id="returnToReading" type="button">← Back to where I was reading</button>
 
-  <script src="revision-27-translations.js?v=2.7.0"></script>
-  <script src="site.js?v=2.7.0"></script>
+  <script src="revision-27-translations.js?v=2.7.1"></script>
+  <script src="site.js?v=2.7.1"></script>
 </body>
 </html>

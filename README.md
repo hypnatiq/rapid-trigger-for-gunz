@@ -1,92 +1,125 @@
 # Rapid Trigger for GunZ
 
-I built this guide to answer a practical GunZ question: when a Hall-effect keyboard feels inconsistent, which setting should I test first, and how do I know whether the change actually helped?
+I built this GunZ guide, cycle tester, and research notebook to help players test whether
+keyboard travel contributes to missed or inconsistent movement. The method starts from
+movement the player already knows, changes one setting at a time, and keeps earlier
+checkpoints available for rollback.
 
-This is my community guide and personal testing record. I keep it on GitHub because the baseline, one-change-at-a-time method, failed results, rollback points, and evidence limits are useful parts of the project. The recorded values are starting points for comparison, not universal presets. The project remains GitHub-only and is not part of my current resume or LinkedIn project lineup.
+## Revision 2.7
 
-## Why I built it
+Revision 2.7 records my current FreeStyle GunZ configuration and preserves the prior
+checkpoints as an archive instead of overwriting the testing history. The current Wooting
+60HE profile uses Gateron Magnetic Jade switches with 0.60 mm actuation, 0.15 mm RT A,
+and 0.25 mm RT D.
 
-Hall-effect settings can look precise in software and still feel different during repeated presses, releases, and movement timing in GunZ. I wanted a method that starts with the movement problem, connects it to the correct keyboard control, changes one value, and repeats the same test before another setting is touched.
+All saved settings, checkpoints, and movement results were tested only in FreeStyle GunZ.
+Steam GunZ has not been tested yet. Its Cycle Tester section is a locked placeholder until
+the same controlled movement checks have been recorded there.
 
-The guide separates three controls:
+The Research Notebook now introduces the current keyboard and profile before the detailed
+Wootility records. Direct buttons open the complete current configuration and my
+Archive Vault. The archive records the 1.20 to 1.00 to 0.60 mm actuation progression,
+earlier Rapid Trigger values, prior game settings, and the previous crosshair.
 
-- **Actuation** starts the first press.
-- **RT D** controls how far the key must rise before the current press releases.
-- **RT A** controls how far the key must move down after a reversal before the next press is recognized.
+## Community purpose and Masangsoft review
 
-One dash uses two presses of the same direction. The settings affect different parts of that cycle, so I do not tune them as if they were interchangeable.
+I built this as a community resource, not a universal preset. The goal is to give new
+and experienced players a controlled way to tune their keyboard around movement they
+already know, then validate the result in Training Room and real matches.
 
-## Current personal result
+On October 10, 2026, I submitted the guide to Masangsoft for consideration as an
+official or licensed community resource. Masangsoft confirmed that the proposal was
+forwarded to the relevant department for internal review.
 
-- FreeStyle GunZ: 0.60 mm actuation, 0.15 mm RT A, 0.25 mm RT D
-- Earlier 1.00 mm checkpoint: 1.00 mm actuation, 0.20 mm RT A, 0.15 mm RT D
-- Preserved Clan War and TDM checkpoint: 1.20 mm actuation, 0.35 mm RT A, 0.15 mm RT D
+This is not an approval, license, endorsement, or partnership. The review is still
+pending.
 
-These are my personal test records in FreeStyle GunZ. They are travel distances in millimeters, not timing measurements. Steam GunZ has not been tested, and the current values are not presented as the correct settings for every player, keyboard, switch, or server.
+## Current tested checkpoint
 
-## How I test a change
+- Current FreeStyle GunZ result: 0.60 mm actuation, 0.15 mm RT A, 0.25 mm RT D
+- Prior 1.00 mm checkpoint: 1.00 mm actuation, 0.20 mm RT A, 0.15 mm RT D
+- Preserved Clan War / TDM checkpoint: 1.20 mm actuation, 0.35 mm RT A, 0.15 mm RT D
 
-1. Save a known working profile before changing anything.
-2. Confirm actuation with normal typing and familiar GunZ movement while Rapid Trigger is off.
-3. Hold RT D at a stable starting value and tune RT A for consecutive movement.
-4. Tune RT D only after RT A can produce the repeated movement.
-5. Recheck RT A after an RT D change, then recheck RT D after the rhythm changes.
-6. Validate the complete result in Training Room, Clan War, Team Deathmatch, and a longer session.
-7. Keep earlier checkpoints available for rollback instead of assuming the newest value is universally better.
+These are my personal test records. They are not universal presets. The values are
+travel distances in millimeters, not timing measurements.
 
-A repeated symptom can tell me which control to test first. It does not prove one setting caused every missed input.
+The guide now states the GunZ input model directly: one dash uses two presses of the
+same direction. Actuation starts the first press, RT D controls the release between
+the presses, and RT A controls how far the key is pressed again before the second or later repeated tap is recognized.
+The copy does not spell out direction-key pairs because GunZ players already know them.
 
-## Start here
+## What changed in the method
 
-1. Open the [public guide](https://gunz-rt.netlify.app/) for the plain-language method.
-2. Open `rapid-trigger-cycle-tester.html` to compare the press, release, reversal, and second-press cycle.
-3. Read `research-notebook.html` for the chronological testing record, including failed and replaced values.
-4. Open `hanz-fgunz-settings.html` for my complete current keyboard, game, mouse, sensitivity, bind, and crosshair record.
-5. Open `hanz-archive-vault.html` for earlier checkpoints kept as rollback evidence.
+1. Preserve a known working profile before changing anything.
+2. Confirm actuation with normal typing and familiar GunZ movement.
+3. Tune RT A for consecutive movement before tuning RT D for the repeated late-dash release.
+4. Recheck RT A after RT D changes and recheck RT D after the rhythm changes.
+5. Validate the whole result in Training Room, Clan War, Team Deathmatch, and longer sessions.
+6. Keep old checkpoints available as rollback points instead of treating every newer value as universally better.
 
-## What the interactive tester does
+The 1.20 mm result proved the method. The 1.00 mm checkpoint improved consistency but
+could still require more effort during high-level games and longer sessions. The current
+0.60 mm profile keeps the response I wanted while reducing the effort needed near the
+top of the key. The higher 0.25 mm RT D restores more intentional release margin after
+the actuation and RT A changes. These conclusions are personal test results, not a preset.
 
-The Cycle Tester compares a saved starting profile, my current FreeStyle GunZ result, and a user-entered profile. It explains calculated travel inside Event History so the number stays beside the action that produced it.
+## Pages and files
 
-When a required custom value is missing, the tester marks that field. When a completed combination cannot work within the selected travel model, it identifies the conflicting value and physical boundary instead of presenting a false result.
+- `index.html`: public Rapid Trigger method, tuning order, troubleshooting, evidence,
+  GunZ-first quick routes, and the dedicated Cycle Tester launch point.
+- `research-notebook.html`: the chronological personal method, current FGunz result,
+  seven-stage test timeline, current screenshot record, references, and evidence limits.
+- `hanz-fgunz-settings.html`: the current Revision 2.7 Wooting, FreeStyle GunZ,
+  sensitivity, bind, and crosshair record.
+- `hanz-archive-vault.html`: saved keyboard, Rapid Trigger, game-setting, and crosshair
+  checkpoints retained as rollback evidence.
+- `rapid-trigger-cycle-tester.html`: interactive tester with Training Room,
+  Clan War / TDM, and user-entered profile comparisons. The calculated travel is
+  explained inside each Event History update rather than in a separate math panel.
+  Selecting the custom profile marks every empty required value with a red circular
+  exclamation point; each marker clears after entry. Completed combinations that cannot
+  work display the specific conflicting value and physical boundary over the live diagram.
+- `site.css` and `site.js`: shared visual system and site behavior.
+- `fgunz-crosshair.png`: my current yellow crosshair record.
+- `crosshair2-green.png`: the prior green crosshair retained for the archive.
+- `revision-27-translations.js`: active translation structure carried forward
+  for Revision 2.7. English is the updated source voice; other languages still need
+  fluent review before being called final.
 
-The mechanical comparison is a teaching model. Its reset range is not presented as a manufacturer specification, and the Hall-effect comparison model is not my personal profile.
+## Evidence and limits
 
-## What changed across my checkpoints
+- Manufacturer sources explain Hall-effect and Rapid Trigger control behavior.
+- GunZ application, tuning order, symptom model, and pass conditions come from
+  personal testing.
+- The current Wootility screenshots show the 0.60 mm actuation and 0.15 / 0.25 mm
+  Rapid Trigger result. Earlier screenshot records remain available in the Archive Vault.
+- The RT A explanation defines the issue as a late second or later repeated press
+  disrupting the expected
+  firing moment, crosshair timing, and movement-and-aim rhythm, not reduced character speed.
+- Active reader-facing copy uses movement language instead of specific directional-key labels.
+- Both current Wootility screenshots and the crosshair open in the shared enlarged-image
+  viewer. The viewer and crosshair setting provide a direct image download. Colored
+  definition buttons also close on a second click.
+- A repeated symptom supports which control to test first. It does not prove that one
+  setting caused every missed input.
+- The Research Notebook records my current resolution, FOV, camera distance,
+  mouse DPI, GunZ sensitivity, and crosshair alongside the keyboard checkpoint.
 
-The 1.20 mm profile gave me a stable known base. The 1.00 mm checkpoint improved consistency but could still require more effort in faster games and longer sessions. The current 0.60 mm profile keeps the response I wanted while reducing the movement needed near the top of the key. Raising RT D to 0.25 mm restored more intentional release margin after the actuation and RT A changes.
+## Repository and public site
 
-Those conclusions describe my own testing. The archive keeps the earlier values visible so the path can be reviewed instead of rewritten as a straight line of successes.
+This is a static site. The project repository is
+[`hypnatiq/rapid-trigger-for-gunz`](https://github.com/hypnatiq/rapid-trigger-for-gunz),
+and the public site is deployed separately through Netlify at
+[`gunz-rt.netlify.app`](https://gunz-rt.netlify.app/). No framework or build command is required.
 
-## Masangsoft review status
+The active stylesheet, scripts, translation file, and Cycle Tester links use the
+`v=2.7.1` asset query for the November 11 public-voice update while the visible guide
+revision remains Revision 2.7.
 
-On October 10, 2026, I submitted the guide to Masangsoft for consideration as an official or licensed community resource. Masangsoft confirmed that the proposal was forwarded to the relevant department for internal review.
+The public guide contains 10 pages. The Research Notebook remains a separate 10-page
+record.
 
-The review is still pending. This is not an approval, license, endorsement, or partnership.
-
-## Repository map
-
-- `index.html`: the public tuning method, troubleshooting path, evidence, and tester launch point
-- `research-notebook.html`: my chronological testing method, current result, source record, and limits
-- `hanz-fgunz-settings.html`: my complete Revision 2.7 setup
-- `hanz-archive-vault.html`: earlier keyboard, Rapid Trigger, game-setting, and crosshair checkpoints
-- `rapid-trigger-cycle-tester.html`: the interactive comparison and event-history tool
-- `site.css` and `site.js`: the shared visual system and site behavior
-- `revision-27-translations.js`: the active translation structure; English is the reviewed source, and other languages still need fluent review before being called final
-- `DEPLOYMENT.md`: the repository and live-site relationship plus post-deployment checks
-
-## Evidence limits
-
-- Manufacturer sources explain Hall-effect and Rapid Trigger behavior.
-- GunZ application, tuning order, symptom interpretation, and pass conditions come from my personal testing.
-- Wootility screenshots support the recorded values but do not make them universal presets.
-- The saved game, mouse, sensitivity, bind, and crosshair values provide test context.
-- FreeStyle GunZ is the tested environment. Steam GunZ remains untested.
-- A setting that worked for me may need a different result for another player.
-
-## Source and deployment status
-
-This repository contains the current Revision 2.7 source. Publishing or replacing the live site is a separate action and requires its own version, link, responsive-layout, tester, and cache validation. Preparing or committing the source does not by itself prove that a public deployment changed.
-
-Copyright 2026 Hanzley Philippeaux. See [LICENSE.md](LICENSE.md), [SECURITY.md](SECURITY.md), and [SANITIZATION.md](SANITIZATION.md).
-
+At wide tester widths, the full travel diagram is centered horizontally as one group:
+the travel rail is on the left, Live Checker is in the middle, and the compact readouts,
+cycle controls, and explanation are on the right. At 920 px and below, the controls move
+beneath the rail and checker. At 640 px and below, all three parts stack vertically.
