@@ -13,6 +13,6 @@
 - Employer, customer, or internal support information
 - Claims that personal settings are universal or that millimeter values are timing measurements
 
-## Required review before upload
+## Required review before a public update
 
-Run the workspace confidentiality scan, internal-link check, and file manifest comparison. Review every changed line against the current live Revision 2.7 package before any external push.
+Run the workspace confidentiality scan, internal-link check, and file manifest comparison. Review every changed line against the current live Revision 2.7 package before each external push.
